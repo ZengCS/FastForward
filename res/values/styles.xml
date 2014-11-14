@@ -1,0 +1,28 @@
+<resources>
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="@android:style/Theme.Holo.Light.NoActionBar">
+        <item name="@android:windowBackground">@color/theme_bg_color</item>
+        <item name="android:textSize">@dimen/theme_text_dft_size</item>
+        <item name="android:textColor">@color/theme_text_color</item>
+    </style>
+    
+    <!-- 禁用多点触控 -->
+    <style name="disableSplitMotion">
+        <item name="android:windowEnableSplitTouch">false</item>
+        <item name="android:splitMotionEvents">false</item>
+    </style>
+
+</resources>

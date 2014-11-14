@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/disableSplitMotion"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/theme_titlebar_height"
+    android:background="@drawable/titlebar_bg"
+    android:orientation="horizontal" >
+
+    <LinearLayout
+        android:id="@+id/titlebtn_left_act"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/theme_titlebtn_height"
+        android:background="@drawable/bg_titlebtn_selector"
+        android:orientation="horizontal"
+        android:paddingLeft="5dip"
+        android:paddingRight="10dip" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/theme_titlebtn_height"
+            android:contentDescription="@null"
+            android:src="@drawable/back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="返回"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <TextView
+            android:id="@+id/titletxt_center_act"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:singleLine="true"
+            android:text="@string/app_name"
+            android:textColor="@color/white"
+            android:textSize="@dimen/theme_titlebar_text_size"
+            android:textStyle="bold" />
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/titlebtn_right_act"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/theme_titlebtn_height"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/bg_titlebtn_selector"
+        android:contentDescription="@null"
+        android:paddingLeft="10dip"
+        android:paddingRight="10dip"
+        android:src="@drawable/setting" />
+
+</RelativeLayout>

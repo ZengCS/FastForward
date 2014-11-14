@@ -1,0 +1,36 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/activity_padding_normal"
+    tools:context=".IndexActivity" >
+
+    <TextView
+        android:id="@+id/hello_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/hello_world"
+        android:textColor="@color/github_blue" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical" >
+
+        <Button
+            style="@style/blueBtn"
+            android:layout_width="match_parent"
+            android:layout_height="50dip"
+            android:text="@string/btn_open" />
+
+        <Button
+            style="@style/redBtn"
+            android:layout_width="match_parent"
+            android:layout_height="50dip"
+            android:layout_marginTop="10dip"
+            android:text="@string/btn_exit" />
+    </LinearLayout>
+
+</RelativeLayout>

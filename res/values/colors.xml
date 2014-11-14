@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="github_blue">#1F76B6</color>
+    <!-- 普通颜色 -->
+    <color name="white">#FFFFFF</color>
+    <color name="red">#FF0000</color>
+    <color name="gray_light">#CCCCCC</color>
+    <color name="gray">#999999</color>
+    <color name="gray_dark">#545454</color>
+    <color name="green">#00FF00</color>
+    <color name="blue">#0000FF</color>
+    
+    <!-- 不同透明度的黑色 -->
+    <color name="black">#000000</color>
+    <color name="black_90p">#E5000000</color>
+    <color name="black_80p">#CB000000</color>
+    <color name="black_70p">#B2000000</color>
+    <color name="black_60p">#99000000</color>
+    <color name="black_50p">#80000000</color>
+    <color name="black_40p">#66000000</color>
+    <color name="black_30p">#4C000000</color>
+    <color name="black_20p">#33000000</color>
+    <color name="black_10p">#19000000</color>
+    <color name="transparent">#00000000</color>
+
+    <!-- 主题颜色 -->
+    <color name="theme_bg_color">#F0F0F0</color>
+    <color name="theme_text_color">#333333</color>
+    <color name="theme_black">#1A1A1A</color>
+    
+    <color name="theme_red">#E96B69</color>
+    <color name="theme_red_dark">#D34D4B</color>
+    
+    <color name="theme_blue">@color/github_blue</color>
+    <color name="theme_blue_dark">#0b5184</color>
+
+</resources>

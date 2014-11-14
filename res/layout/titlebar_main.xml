@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/disableSplitMotion"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/theme_titlebar_height"
+    android:background="@drawable/titlebar_bg"
+    android:orientation="horizontal" >
+
+    <ImageView
+        android:id="@+id/titlebtn_left"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/theme_titlebtn_height"
+        android:background="@drawable/bg_titlebtn_selector"
+        android:contentDescription="@null"
+        android:paddingLeft="10dip"
+        android:paddingRight="10dip"
+        android:src="@drawable/setting" />
+
+    <FrameLayout
+        android:layout_width="0dip"
+        android:layout_height="match_parent"
+        android:layout_weight="1" >
+
+        <TextView
+            android:id="@+id/titletxt_center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:singleLine="true"
+            android:text="@string/app_name"
+            android:textColor="@color/white"
+            android:textSize="@dimen/theme_titlebar_text_size"
+            android:textStyle="bold" />
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/titlebtn_right"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/theme_titlebtn_height"
+        android:background="@drawable/bg_titlebtn_selector"
+        android:contentDescription="@null"
+        android:paddingLeft="10dip"
+        android:paddingRight="10dip"
+        android:src="@drawable/search"
+        android:visibility="visible" />
+
+</LinearLayout>
