@@ -8,6 +8,15 @@
 package com.zcs.fast.forward;
 
 public final class R {
+    public static final class anim {
+        public static final int mz_loading_animation=0x7f040000;
+        public static final int pull_arrow_down=0x7f040001;
+        public static final int pull_arrow_up=0x7f040002;
+        public static final int update_loading_progressbar_anim=0x7f040003;
+    }
+    public static final class array {
+        public static final int menu_list=0x7f0a0000;
+    }
     public static final class attr {
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
@@ -126,147 +135,358 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     public static final class color {
         /**  不同透明度的黑色 
          */
-        public static final int black=0x7f050008;
-        public static final int black_10p=0x7f050011;
-        public static final int black_20p=0x7f050010;
-        public static final int black_30p=0x7f05000f;
-        public static final int black_40p=0x7f05000e;
-        public static final int black_50p=0x7f05000d;
-        public static final int black_60p=0x7f05000c;
-        public static final int black_70p=0x7f05000b;
-        public static final int black_80p=0x7f05000a;
-        public static final int black_90p=0x7f050009;
-        public static final int blue=0x7f050007;
-        public static final int github_blue=0x7f050000;
-        public static final int gray=0x7f050004;
-        public static final int gray_dark=0x7f050005;
-        public static final int gray_light=0x7f050003;
-        public static final int green=0x7f050006;
-        public static final int red=0x7f050002;
+        public static final int black=0x7f090008;
+        public static final int black_10p=0x7f090011;
+        public static final int black_20p=0x7f090010;
+        public static final int black_30p=0x7f09000f;
+        public static final int black_40p=0x7f09000e;
+        public static final int black_50p=0x7f09000d;
+        public static final int black_60p=0x7f09000c;
+        public static final int black_70p=0x7f09000b;
+        public static final int black_80p=0x7f09000a;
+        public static final int black_90p=0x7f090009;
+        public static final int blue=0x7f090007;
+        /**  dialog按钮-常态 
+         */
+        public static final int dialog_btn_normal=0x7f09001b;
+        /**  dialog按钮-点击 
+         */
+        public static final int dialog_btn_on=0x7f09001c;
+        public static final int dialog_btn_top_line=0x7f09001f;
+        public static final int dialog_msg=0x7f09001e;
+        public static final int dialog_title=0x7f09001d;
+        public static final int dialog_title_bottom_line=0x7f090020;
+        public static final int github_blue=0x7f090000;
+        public static final int gray=0x7f090004;
+        public static final int gray_dark=0x7f090005;
+        public static final int gray_light=0x7f090003;
+        public static final int green=0x7f090006;
+        public static final int red=0x7f090002;
         /**  主题颜色 
          */
-        public static final int theme_bg_color=0x7f050013;
-        public static final int theme_black=0x7f050015;
-        public static final int theme_blue=0x7f050018;
-        public static final int theme_blue_dark=0x7f050019;
-        public static final int theme_red=0x7f050016;
-        public static final int theme_red_dark=0x7f050017;
-        public static final int theme_text_color=0x7f050014;
-        public static final int transparent=0x7f050012;
+        public static final int theme_bg_color=0x7f090013;
+        public static final int theme_black=0x7f090015;
+        public static final int theme_blue=0x7f090018;
+        public static final int theme_blue_dark=0x7f090019;
+        public static final int theme_blue_light=0x7f09001a;
+        public static final int theme_red=0x7f090016;
+        public static final int theme_red_dark=0x7f090017;
+        public static final int theme_text_color=0x7f090014;
+        public static final int transparent=0x7f090012;
         /**  普通颜色 
          */
-        public static final int white=0x7f050001;
+        public static final int white=0x7f090001;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
+ Default screen margins, per the Android Design guidelines. 
 
          Customize dimensions originally defined in res/values/dimens.xml (such as
          screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here.
     
          */
-        public static final int activity_horizontal_margin=0x7f060000;
-        public static final int activity_padding_big=0x7f060004;
-        public static final int activity_padding_lager=0x7f060005;
-        public static final int activity_padding_normal=0x7f060003;
+        public static final int activity_horizontal_margin=0x7f050000;
+        public static final int activity_padding_big=0x7f050018;
+        public static final int activity_padding_lager=0x7f050019;
+        public static final int activity_padding_normal=0x7f050017;
         /**  自定义主题 
          */
-        public static final int activity_padding_small=0x7f060002;
-        public static final int activity_vertical_margin=0x7f060001;
-        public static final int list_padding=0x7f06000c;
-        public static final int shadow_width=0x7f06000d;
+        public static final int activity_padding_small=0x7f050016;
+        public static final int activity_vertical_margin=0x7f050001;
+        public static final int button_margin=0x7f050002;
+        public static final int list_padding=0x7f050020;
+        /**  Menu ListView Dimension 
+         */
+        public static final int menu_item_height=0x7f050022;
+        /**  ViewPager的间隔 
+         */
+        public static final int pciture_view_pager_margin=0x7f050003;
+        /**  工具栏上按钮的间距 
+         */
+        public static final int picture_action_bar_button_margin=0x7f050004;
+        public static final int picture_action_bar_height=0x7f050005;
+        /**  工具栏上显示1/6文字的字体大小 
+         */
+        public static final int picture_action_bar_page_index_text_size=0x7f05000f;
+        public static final int picture_album_column_margin=0x7f05000c;
+        public static final int picture_album_item_title_height=0x7f05000e;
+        public static final int picture_album_text_margin=0x7f05000b;
+        /**  图集标题字体大小 
+         */
+        public static final int picture_album_title_text_size=0x7f050007;
+        public static final int picture_album_top_margin=0x7f05000d;
+        /**  图集View的间隔 
+         */
+        public static final int picture_album_view_margin=0x7f050009;
+        public static final int picture_album_view_margin_bottom=0x7f05000a;
+        /**  图集中图片数量字体大小 
+         */
+        public static final int picture_count_text_size=0x7f050008;
+        /**  正在加载文本上边距 
+         */
+        public static final int picture_loading_text_top_margin=0x7f050011;
+        public static final int picture_pull_to_refresh_footer_height=0x7f050015;
+        public static final int picture_pull_to_refresh_last_update_time_text_size=0x7f050013;
+        public static final int picture_pull_to_refresh_last_update_time_top_margin=0x7f050014;
+        /**  下拉刷新字体 
+         */
+        public static final int picture_pull_to_refresh_loading_text_size=0x7f050012;
+        /**  重新加载文字字体大小 
+         */
+        public static final int picture_reload_text_size=0x7f050006;
+        /**  用户引导边距 
+         */
+        public static final int picture_user_guide_margin=0x7f050010;
+        public static final int shadow_width=0x7f050021;
         /**  SlidingMenu 
          */
-        public static final int slidingmenu_offset=0x7f06000b;
+        public static final int slidingmenu_offset=0x7f05001f;
         /**  底部Tab 
          */
-        public static final int theme_tab_height=0x7f060008;
+        public static final int theme_tab_height=0x7f05001c;
         /**  默认字体大小 
          */
-        public static final int theme_text_dft_size=0x7f060009;
+        public static final int theme_text_dft_size=0x7f05001d;
         /**  标题栏高度 
          */
-        public static final int theme_titlebar_height=0x7f060006;
+        public static final int theme_titlebar_height=0x7f05001a;
         /**  标题栏字体大小 
          */
-        public static final int theme_titlebar_text_size=0x7f06000a;
-        public static final int theme_titlebtn_height=0x7f060007;
+        public static final int theme_titlebar_text_size=0x7f05001e;
+        public static final int theme_titlebtn_height=0x7f05001b;
     }
     public static final class drawable {
-        public static final int back=0x7f020000;
-        public static final int bg_corner_blue=0x7f020001;
-        public static final int bg_corner_blue_dark=0x7f020002;
-        public static final int bg_corner_blue_selector=0x7f020003;
-        public static final int bg_corner_red=0x7f020004;
-        public static final int bg_corner_red_dark=0x7f020005;
-        public static final int bg_corner_red_selector=0x7f020006;
-        public static final int bg_titlebtn_selector=0x7f020007;
-        public static final int ic_launcher=0x7f020008;
-        public static final int search=0x7f020009;
-        public static final int setting=0x7f02000a;
-        public static final int shadow=0x7f02000b;
-        public static final int tab_1=0x7f02000c;
-        public static final int tab_1_on=0x7f02000d;
-        public static final int tab_2=0x7f02000e;
-        public static final int tab_2_on=0x7f02000f;
-        public static final int tab_3=0x7f020010;
-        public static final int tab_3_on=0x7f020011;
-        public static final int titlebar_bg=0x7f020012;
+        public static final int bg_corner_alpha_black=0x7f020000;
+        public static final int bg_corner_alpha_black_selector=0x7f020001;
+        public static final int bg_corner_blue=0x7f020002;
+        public static final int bg_corner_blue_dark=0x7f020003;
+        public static final int bg_corner_blue_light=0x7f020004;
+        public static final int bg_corner_blue_selector=0x7f020005;
+        public static final int bg_corner_gray=0x7f020006;
+        public static final int bg_corner_gray_radius50dp=0x7f020007;
+        public static final int bg_corner_red=0x7f020008;
+        public static final int bg_corner_red_dark=0x7f020009;
+        public static final int bg_corner_red_selector=0x7f02000a;
+        public static final int bg_list_selector=0x7f02000b;
+        public static final int bg_main=0x7f02000c;
+        public static final int bg_splash=0x7f02000d;
+        public static final int bg_titlebar=0x7f02000e;
+        public static final int bg_titlebtn_selector=0x7f02000f;
+        public static final int corners_bg=0x7f020010;
+        public static final int default_ptr_rotate=0x7f020011;
+        public static final int dialog_bg=0x7f020012;
+        public static final int git_null=0x7f020013;
+        public static final int github_circle_white=0x7f020014;
+        public static final int github_colorful=0x7f020015;
+        public static final int github_gray=0x7f020016;
+        public static final int github_white=0x7f020017;
+        public static final int ic_android=0x7f020018;
+        public static final int ic_back=0x7f020019;
+        public static final int ic_cocos2d=0x7f02001a;
+        public static final int ic_info=0x7f02001b;
+        public static final int ic_java=0x7f02001c;
+        public static final int ic_launcher=0x7f02001d;
+        public static final int ic_loading=0x7f02001e;
+        public static final int ic_search=0x7f02001f;
+        public static final int ic_setting=0x7f020020;
+        public static final int ic_view=0x7f020021;
+        public static final int mz_dialog_btn=0x7f020022;
+        public static final int mz_loading=0x7f020023;
+        public static final int repeat_bg_main=0x7f020024;
+        public static final int shadow=0x7f020025;
+        public static final int splash_repeat_bg=0x7f020026;
+        public static final int tab_1=0x7f020027;
+        public static final int tab_1_on=0x7f020028;
+        public static final int tab_2=0x7f020029;
+        public static final int tab_2_on=0x7f02002a;
+        public static final int tab_3=0x7f02002b;
+        public static final int tab_3_on=0x7f02002c;
+        public static final int xsearch_loading=0x7f02002d;
+        public static final int xsearch_msg_pull_arrow_down=0x7f02002e;
     }
     public static final class id {
-        public static final int TextView1=0x7f04000c;
-        public static final int action_settings=0x7f04001a;
-        public static final int btn_login=0x7f04000d;
-        public static final int btn_menu_exit=0x7f04000e;
-        public static final int content_frame=0x7f04000a;
-        public static final int fullscreen=0x7f040003;
-        public static final int hello_text=0x7f040007;
-        public static final int index_tab_1=0x7f04000f;
-        public static final int index_tab_2=0x7f040010;
-        public static final int index_tab_3=0x7f040011;
-        public static final int left=0x7f040000;
-        public static final int margin=0x7f040002;
-        public static final int menu_frame=0x7f040012;
-        public static final int none=0x7f040004;
-        public static final int right=0x7f040001;
-        public static final int selected_view=0x7f040005;
-        public static final int slidingmenumain=0x7f040013;
-        public static final int splash_layout=0x7f04000b;
-        public static final int tab_frame=0x7f040009;
-        public static final int titlebar_empty=0x7f040006;
-        public static final int titlebar_main=0x7f040008;
-        public static final int titlebtn_left=0x7f040017;
-        public static final int titlebtn_left_act=0x7f040014;
-        public static final int titlebtn_right=0x7f040019;
-        public static final int titlebtn_right_act=0x7f040016;
-        public static final int titletxt_center=0x7f040018;
-        public static final int titletxt_center_act=0x7f040015;
+        public static final int ItemImage=0x7f08002b;
+        public static final int ItemText=0x7f08002c;
+        public static final int TextView1=0x7f080018;
+        public static final int action_settings=0x7f08003e;
+        public static final int btn_custom_dialog_confirm=0x7f080008;
+        public static final int btn_custom_dialog_message=0x7f080009;
+        public static final int btn_custom_dialog_process=0x7f08000a;
+        public static final int btn_menu_exit=0x7f08001a;
+        public static final int content_frame=0x7f080016;
+        public static final int demo_desc_tip=0x7f080007;
+        public static final int dialog_btn_cancel=0x7f080025;
+        public static final int dialog_btn_ok=0x7f080027;
+        public static final int dialog_btn_split_line=0x7f080026;
+        public static final int dialog_loading_title=0x7f08002a;
+        public static final int dialog_txt_msg=0x7f080024;
+        public static final int dialog_txt_title=0x7f080023;
+        public static final int dialog_view=0x7f080028;
+        public static final int dialog_view_msg=0x7f080022;
+        public static final int finish_btn=0x7f08000d;
+        public static final int fullscreen=0x7f080003;
+        public static final int hello_text=0x7f08000f;
+        public static final int img=0x7f080029;
+        public static final int index_tab_1=0x7f08001c;
+        public static final int index_tab_2=0x7f08001d;
+        public static final int index_tab_3=0x7f08001e;
+        public static final int item_menu_icon=0x7f08001f;
+        public static final int item_menu_name=0x7f080020;
+        public static final int left=0x7f080000;
+        public static final int main_gridview=0x7f080019;
+        public static final int margin=0x7f080002;
+        public static final int menu_frame=0x7f080021;
+        public static final int menu_listview=0x7f08001b;
+        public static final int multi_img=0x7f080011;
+        public static final int none=0x7f080004;
+        public static final int pull_to_load_footer_content=0x7f08002d;
+        public static final int pull_to_load_footer_hint_textview=0x7f08002f;
+        public static final int pull_to_load_footer_progressbar=0x7f08002e;
+        public static final int pull_to_refresh_header_arrow=0x7f080035;
+        public static final int pull_to_refresh_header_content=0x7f080030;
+        public static final int pull_to_refresh_header_hint_textview=0x7f080032;
+        public static final int pull_to_refresh_header_progressbar=0x7f080036;
+        public static final int pull_to_refresh_header_text=0x7f080031;
+        public static final int pull_to_refresh_header_time=0x7f080034;
+        public static final int pull_to_refresh_last_update_time_text=0x7f080033;
+        public static final int right=0x7f080001;
+        public static final int selected_view=0x7f080005;
+        public static final int slidingmenumain=0x7f080037;
+        public static final int splash_layout=0x7f080017;
+        public static final int tab_frame=0x7f080015;
+        public static final int titlebar_custom_dialog=0x7f080006;
+        public static final int titlebar_empty=0x7f08000b;
+        public static final int titlebar_finish=0x7f08000c;
+        public static final int titlebar_help=0x7f08000e;
+        public static final int titlebar_main=0x7f080014;
+        public static final int titlebar_multi_touch=0x7f080010;
+        public static final int titlebar_video_thum=0x7f080012;
+        public static final int titlebtn_left=0x7f08003b;
+        public static final int titlebtn_left_act=0x7f080038;
+        public static final int titlebtn_right=0x7f08003d;
+        public static final int titlebtn_right_act=0x7f08003a;
+        public static final int titletxt_center=0x7f08003c;
+        public static final int titletxt_center_act=0x7f080039;
+        public static final int video_list_layout=0x7f080013;
     }
     public static final class layout {
-        public static final int activity_empty=0x7f030000;
-        public static final int activity_main=0x7f030001;
-        public static final int fragment_account=0x7f030002;
-        public static final int fragment_index=0x7f030003;
-        public static final int fragment_main=0x7f030004;
-        public static final int fragment_menu=0x7f030005;
-        public static final int fragment_news=0x7f030006;
-        public static final int fragment_tab=0x7f030007;
-        public static final int menu_frame=0x7f030008;
-        public static final int slidingmenumain=0x7f030009;
-        public static final int titlebar_activity=0x7f03000a;
-        public static final int titlebar_main=0x7f03000b;
+        public static final int activity_custom_dialog=0x7f030000;
+        public static final int activity_dialog=0x7f030001;
+        public static final int activity_empty=0x7f030002;
+        public static final int activity_finish=0x7f030003;
+        public static final int activity_help=0x7f030004;
+        public static final int activity_main=0x7f030005;
+        public static final int activity_multi_touch=0x7f030006;
+        public static final int activity_search=0x7f030007;
+        public static final int activity_video_thum=0x7f030008;
+        public static final int fragment_account=0x7f030009;
+        public static final int fragment_index=0x7f03000a;
+        public static final int fragment_main=0x7f03000b;
+        public static final int fragment_menu=0x7f03000c;
+        public static final int fragment_news=0x7f03000d;
+        public static final int fragment_tab=0x7f03000e;
+        public static final int item_sliding_menu=0x7f03000f;
+        public static final int menu_frame=0x7f030010;
+        public static final int mz_confirm_dialog=0x7f030011;
+        public static final int mz_loading_dialog=0x7f030012;
+        public static final int mz_message_dialog=0x7f030013;
+        public static final int night_item=0x7f030014;
+        public static final int pull_to_load_footer=0x7f030015;
+        public static final int pull_to_refresh_header=0x7f030016;
+        public static final int pull_to_refresh_header2=0x7f030017;
+        public static final int slidingmenumain=0x7f030018;
+        public static final int titlebar_activity=0x7f030019;
+        public static final int titlebar_main=0x7f03001a;
     }
     public static final class menu {
-        public static final int empty=0x7f090000;
+        public static final int custom_dialog=0x7f0b0000;
+        public static final int dialog=0x7f0b0001;
+        public static final int empty=0x7f0b0002;
+        public static final int finish=0x7f0b0003;
+        public static final int help=0x7f0b0004;
+        public static final int image_zoom=0x7f0b0005;
+        public static final int search=0x7f0b0006;
+        public static final int video_thum=0x7f0b0007;
     }
     public static final class string {
-        public static final int action_settings=0x7f080005;
-        public static final int app_name=0x7f080000;
-        public static final int btn_exit=0x7f080003;
-        public static final int btn_open=0x7f080002;
-        public static final int hello_world=0x7f080001;
-        public static final int splash_msg=0x7f080006;
-        public static final int splash_version=0x7f080007;
-        public static final int title_activity_empty=0x7f080004;
+        public static final int act_desc=0x7f06003b;
+        /**  功能介绍Description 
+         */
+        public static final int act_info=0x7f060038;
+        public static final int action_settings=0x7f06001d;
+        public static final int app_name=0x7f060017;
+        public static final int btn_cancel_mz=0x7f060026;
+        public static final int btn_confirm=0x7f060025;
+        public static final int btn_exit=0x7f06001a;
+        public static final int btn_open=0x7f060019;
+        public static final int btn_return=0x7f060027;
+        public static final int btn_share=0x7f060028;
+        public static final int custom_dialog_desc=0x7f06003f;
+        public static final int dft_loading_txt=0x7f06002f;
+        public static final int dialog_dft_title=0x7f060029;
+        public static final int exit_confirm_msg=0x7f06001b;
+        public static final int hello_world=0x7f060018;
+        public static final int link_info=0x7f060039;
+        public static final int multi_touch_desc=0x7f06003c;
+        public static final int mz_btn_cancel=0x7f06002b;
+        public static final int mz_btn_i_know=0x7f06002c;
+        public static final int mz_btn_ok=0x7f06002a;
+        /**  加载中提示 
+         */
+        public static final int picture_image_loading=0x7f060008;
+        /**  加载图片失败时的提示文本 
+         */
+        public static final int picture_load_image_failed=0x7f060007;
+        public static final int picture_next_album=0x7f060015;
+        public static final int picture_previous_album=0x7f060016;
+        public static final int picture_save_fail=0x7f060014;
+        /**  图片保存的文字 
+         */
+        public static final int picture_save_succeed=0x7f060013;
+        public static final int pull_to_refresh_footer_hint_loading=0x7f06000d;
+        public static final int pull_to_refresh_footer_hint_ready=0x7f06000f;
+        public static final int pull_to_refresh_header_hint_loading=0x7f06000c;
+        /**  下拉刷新和上拉加载更多的文本 
+         */
+        public static final int pull_to_refresh_header_hint_normal=0x7f060009;
+        public static final int pull_to_refresh_header_hint_normal2=0x7f06000a;
+        public static final int pull_to_refresh_header_hint_ready=0x7f06000b;
+        public static final int pull_to_refresh_header_last_time=0x7f06000e;
+        public static final int pull_to_refresh_network_error=0x7f060012;
+        public static final int pull_to_refresh_no_more_data=0x7f060011;
+        public static final int pull_to_refresh_refreshing_label=0x7f060010;
+        public static final int pushmsg_center_load_more_ongoing_text=0x7f060005;
+        public static final int pushmsg_center_no_more_msg=0x7f060000;
+        public static final int pushmsg_center_pull_down_text=0x7f060002;
+        public static final int pushmsg_center_pull_down_update_time=0x7f060004;
+        public static final int pushmsg_center_pull_release_text=0x7f060003;
+        public static final int pushmsg_center_pull_up_text=0x7f060001;
+        public static final int source_info=0x7f06003a;
+        public static final int splash_msg=0x7f06001e;
+        public static final int splash_version=0x7f06001f;
+        public static final int title_activity_custom_dialog=0x7f060034;
+        public static final int title_activity_dialog=0x7f060030;
+        public static final int title_activity_empty=0x7f06001c;
+        public static final int title_activity_finish=0x7f060020;
+        public static final int title_activity_help=0x7f060033;
+        public static final int title_activity_image_zoom=0x7f060031;
+        public static final int title_activity_search=0x7f060021;
+        public static final int title_activity_video_thum=0x7f060032;
+        public static final int txt_about=0x7f06002d;
+        /**  Dialog 
+         */
+        public static final int txt_alertdialog_title=0x7f060022;
+        public static final int txt_alertdialog_title_failed=0x7f060024;
+        public static final int txt_alertdialog_title_success=0x7f060023;
+        public static final int txt_back=0x7f06002e;
+        /**  Dialog title 
+         */
+        public static final int txt_dialog_confirm=0x7f060035;
+        public static final int txt_dialog_message=0x7f060036;
+        public static final int txt_dialog_process=0x7f060037;
+        public static final int video_thum_desc=0x7f06003e;
+        public static final int video_thum_desc_scaning=0x7f06003d;
+        public static final int xsearch_loading=0x7f060006;
     }
     public static final class style {
         /** 
@@ -289,17 +509,57 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         res/values-v11/styles.xml on API 14+ devices.
     
  API 14 theme customizations can go here. 
+
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    
+
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        
+
+        Base application theme for API 11+. This theme completely replaces
+        AppBaseTheme from res/values/styles.xml on API 11+ devices.
+    
+ API 11 theme customizations can go here. 
+
+        Base application theme for API 14+. This theme completely replaces
+        AppBaseTheme from BOTH res/values/styles.xml and
+        res/values-v11/styles.xml on API 14+ devices.
+    
+ API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f070003;
+        public static final int AppBaseTheme=0x7f070000;
         /**  Application theme. 
+ All customizations that are NOT specific to a particular API-level can go here. 
+ Application theme. 
          */
-        public static final int AppTheme=0x7f070004;
-        public static final int blueBtn=0x7f070001;
+        public static final int AppTheme=0x7f070001;
+        /**  蓝色按钮 
+         */
+        public static final int blueBtn=0x7f070005;
+        /**  蓝色带图标按钮 
+         */
+        public static final int blueBtnWithIcon=0x7f070006;
         /**  禁用多点触控 
          */
-        public static final int disableSplitMotion=0x7f070005;
-        public static final int parentBtn=0x7f070000;
-        public static final int redBtn=0x7f070002;
+        public static final int disableSplitMotion=0x7f070009;
+        /**  按钮默认 
+         */
+        public static final int mBaseBtn=0x7f070004;
+        /**  Dialog Button Style 
+         */
+        public static final int mz_dialog_btn=0x7f070003;
+        /**  Dialog Style 
+         */
+        public static final int mz_dialog_style=0x7f070002;
+        /**  红色按钮 
+         */
+        public static final int redBtn=0x7f070007;
+        /**  红色带图标按钮 
+         */
+        public static final int redBtnWithIcon=0x7f070008;
     }
     public static final class styleable {
         /** Attributes that can be used with a SlidingMenu.

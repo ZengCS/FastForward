@@ -14,12 +14,29 @@
         android:layout_below="@id/titlebar_empty"
         android:padding="@dimen/activity_padding_normal" >
 
+        <!-- Demo功能简介 -->
+
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/demo_desc_tip"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="EmptyActivity"
-            android:textSize="20sp" />
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:background="@drawable/bg_corner_gray"
+            android:drawableLeft="@drawable/ic_info"
+            android:gravity="center"
+            android:padding="5dip"
+            android:text="@string/act_desc"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <!-- Demo展示区域 -->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/demo_desc_tip"
+            android:background="@color/black_10p" >
+        </RelativeLayout>
     </RelativeLayout>
 
 </RelativeLayout>

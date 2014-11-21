@@ -34,5 +34,15 @@
     
     <color name="theme_blue">@color/github_blue</color>
     <color name="theme_blue_dark">#0b5184</color>
+    <color name="theme_blue_light">#CC1F76B6</color>
+    
+    <!-- dialog按钮-常态 -->
+    <color name="dialog_btn_normal">#F3F3F3</color>
+    <!-- dialog按钮-点击 -->
+    <color name="dialog_btn_on">#DADADA</color>
+    <color name="dialog_title">@color/github_blue</color>
+    <color name="dialog_msg">#313131</color>
+    <color name="dialog_btn_top_line">#C2C2C2</color>
+    <color name="dialog_title_bottom_line">@color/github_blue</color>
 
 </resources>

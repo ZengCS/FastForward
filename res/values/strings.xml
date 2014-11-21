@@ -4,10 +4,49 @@
     <string name="app_name">时光飞逝</string>
     <string name="hello_world">Welcome to Fast-Forward</string>
     <string name="btn_open">Open Other Activity</string>
-    <string name="btn_exit">Exit App</string>
+    <string name="btn_exit">注销并退出</string>
+    <string name="exit_confirm_msg">你确定要注销并退出吗？\n(退出不会删除任何缓存数据！)</string>
     <string name="title_activity_empty">EmptyActivity</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">设置</string>
     <string name="splash_msg">嘀嗒、嘀嗒、嘀嗒，时光飞逝。</string>
     <string name="splash_version">&#169;CopyRight ZengCS 2014</string>
+    <string name="title_activity_finish">FinishActivity</string>
+    <string name="title_activity_search">SearchActivity</string>
+
+    <!-- Dialog -->
+    <string name="txt_alertdialog_title">提示</string>
+    <string name="txt_alertdialog_title_success">找回成功</string>
+    <string name="txt_alertdialog_title_failed">找回失败</string>
+    <string name="btn_confirm">确定</string>
+    <string name="btn_cancel_mz">取消</string>
+    <string name="btn_return">返回</string>
+    <string name="btn_share">分享</string>
+    <string name="dialog_dft_title">温馨提示</string>
+    <string name="mz_btn_ok">确定</string>
+    <string name="mz_btn_cancel">取消</string>
+    <string name="mz_btn_i_know">我知道了</string>
+    <string name="txt_about">关于</string>
+    <string name="txt_back">返回</string>
+    <string name="dft_loading_txt">Loading&#8230;</string>
+    <string name="title_activity_dialog">DialogActivity</string>
+    <string name="title_activity_image_zoom">ImageZoomActivity</string>
+    <string name="title_activity_video_thum">VideoThumActivity</string>
+    <string name="title_activity_help">HelpActivity</string>
+    <string name="title_activity_custom_dialog">CustomDialogActivity</string>
+
+    <!-- Dialog title -->
+    <string name="txt_dialog_confirm">确认对话框</string>
+    <string name="txt_dialog_message">消息对话框</string>
+    <string name="txt_dialog_process">加载对话框</string>
+
+    <!-- 功能介绍Description -->
+    <string name="act_info">具体代码请查看:\n%1$s\n\n%2$s</string>
+    <string name="link_info">时光飞逝：ZengCS\n腾讯扣扣：417327734\n\n腾讯邮箱：\nzengcs@vip.qq.com\n谷歌邮箱：\nzcs417327734@gmail.com\n\n联系地址：\n天府软件园D·成都·四川·中国</string>
+    <string name="source_info">项目源码GitHub地址:\nhttps://github.com/zcs417327734/FastForward\n\n电子邮箱:zengcs@vip.qq.com</string>
+    <string name="act_desc">当前Activity的功能简介</string>
+    <string name="multi_touch_desc">多点触控，实现图片拖拽与缩放！</string>
+    <string name="video_thum_desc_scaning">正在扫描视频文件，请稍后&#8230;</string>
+    <string name="video_thum_desc">本地视频缩略图已生成！</string>
+    <string name="custom_dialog_desc">自定义对话框！</string>
 
 </resources>

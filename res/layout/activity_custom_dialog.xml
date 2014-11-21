@@ -1,0 +1,65 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CustomDialogActivity" >
+
+    <include
+        android:id="@+id/titlebar_custom_dialog"
+        layout="@layout/titlebar_activity" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/titlebar_custom_dialog"
+        android:padding="@dimen/activity_padding_normal" >
+
+        <!-- Demo功能简介 -->
+
+        <TextView
+            android:id="@+id/demo_desc_tip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:background="@drawable/bg_corner_gray"
+            android:drawableLeft="@drawable/ic_info"
+            android:gravity="center"
+            android:padding="5dip"
+            android:text="@string/custom_dialog_desc"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <!-- Demo展示区域 -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/btn_custom_dialog_confirm"
+                style="@style/blueBtnWithIcon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dip"
+                android:text="@string/txt_dialog_confirm" />
+
+            <Button
+                android:id="@+id/btn_custom_dialog_message"
+                style="@style/blueBtnWithIcon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dip"
+                android:text="@string/txt_dialog_message" />
+
+            <Button
+                android:id="@+id/btn_custom_dialog_process"
+                style="@style/blueBtnWithIcon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_dialog_process" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

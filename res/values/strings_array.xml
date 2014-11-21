@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="menu_list">
+        <item>系统设置;SYSTEM_SETTING</item>
+        <item>清空缓存;CLEAR_CACHE</item>
+        <item>意见反馈;FEEDBACK</item>
+        <item>检测更新;UPDATE</item>
+        <item>新手引导;NAVIGATE</item>
+        <item>版本信息;VERSION</item>
+        <item>帮助FAQ;HELP_FAQ</item>
+        <item>关于;ABOUT</item>
+    </string-array>
+
+</resources>

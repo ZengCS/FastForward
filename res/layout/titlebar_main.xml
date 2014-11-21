@@ -3,7 +3,7 @@
     style="@style/disableSplitMotion"
     android:layout_width="match_parent"
     android:layout_height="@dimen/theme_titlebar_height"
-    android:background="@drawable/titlebar_bg"
+    android:background="@drawable/bg_titlebar"
     android:orientation="horizontal" >
 
     <ImageView
@@ -14,7 +14,7 @@
         android:contentDescription="@null"
         android:paddingLeft="10dip"
         android:paddingRight="10dip"
-        android:src="@drawable/setting" />
+        android:src="@drawable/ic_setting" />
 
     <FrameLayout
         android:layout_width="0dip"
@@ -41,7 +41,7 @@
         android:contentDescription="@null"
         android:paddingLeft="10dip"
         android:paddingRight="10dip"
-        android:src="@drawable/search"
+        android:src="@drawable/ic_search"
         android:visibility="visible" />
 
 </LinearLayout>

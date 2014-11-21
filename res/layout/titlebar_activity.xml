@@ -3,7 +3,7 @@
     style="@style/disableSplitMotion"
     android:layout_width="match_parent"
     android:layout_height="@dimen/theme_titlebar_height"
-    android:background="@drawable/titlebar_bg"
+    android:background="@drawable/bg_titlebar"
     android:orientation="horizontal" >
 
     <LinearLayout
@@ -19,13 +19,13 @@
             android:layout_width="wrap_content"
             android:layout_height="@dimen/theme_titlebtn_height"
             android:contentDescription="@null"
-            android:src="@drawable/back" />
+            android:src="@drawable/ic_back" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
-            android:text="返回"
+            android:text="@string/txt_back"
             android:textColor="@color/white"
             android:textSize="18sp" />
     </LinearLayout>
@@ -55,6 +55,6 @@
         android:contentDescription="@null"
         android:paddingLeft="10dip"
         android:paddingRight="10dip"
-        android:src="@drawable/setting" />
+        android:src="@drawable/ic_view" />
 
 </RelativeLayout>

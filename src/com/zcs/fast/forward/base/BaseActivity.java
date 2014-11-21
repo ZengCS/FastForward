@@ -1,7 +1,13 @@
 package com.zcs.fast.forward.base;
 
+import com.zcs.fast.forward.R;
+import com.zcs.fast.forward.utils.dialog.DialogParam;
+import com.zcs.fast.forward.utils.dialog.DialogUtil;
+
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
@@ -13,6 +19,7 @@ import android.widget.Toast;
 
 public abstract class BaseActivity extends Activity implements OnClickListener {
 	protected final static String TAG = "BaseActivity";
+	protected Dialog mHelpDialog;
 
 	/**
 	 * 屏幕尺寸
@@ -35,6 +42,34 @@ public abstract class BaseActivity extends Activity implements OnClickListener {
 		getWindowManager().getDefaultDisplay().getMetrics(mDisplayMetrics);
 		screenWidth = mDisplayMetrics.widthPixels;
 		screenHeight = mDisplayMetrics.heightPixels;
+	}
+
+	/**
+	 * 显示帮助Dialog
+	 */
+	protected void displayHelpDialog() {
+		if (mHelpDialog == null) {
+			initDialog();
+		}
+		mHelpDialog.show();
+	}
+
+	/**
+	 * 初始化Dialog
+	 */
+	private void initDialog() {
+		DialogParam param = new DialogParam(this, getString(R.string.act_info, this.getClass().getName(), getString(R.string.source_info)), true);
+		param.setTextIsSelectable(true);
+		param.setOkBtnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				mHelpDialog.dismiss();
+			}
+		});
+		String[] highStrs = new String[] { this.getClass().getSimpleName(), "https://github.com/zcs417327734/FastForward", "zengcs@vip.qq.com" };
+		// int highColor = Color.parseColor("#1F76B6");// 蓝色
+		int highColor = Color.parseColor("#E96B69");// 红色
+		mHelpDialog = DialogUtil.createMessageDialog(param, highStrs, highColor);
 	}
 
 	/**

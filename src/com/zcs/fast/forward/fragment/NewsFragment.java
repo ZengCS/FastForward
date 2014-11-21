@@ -16,7 +16,19 @@ public class NewsFragment extends BaseFragment {
 		Log.d(TAG, "NewsFragment onCreateView called!");
 		root = inflater.inflate(R.layout.fragment_news, null);
 		super.init();
+		mListener.showToast("初始化:NewsFragment");
 		return root;
+	}
+
+	@Override
+	public void onHiddenChanged(boolean hidden) {
+		// TODO Auto-generated method stub
+		super.onHiddenChanged(hidden);
+		if (hidden) {// 被隐藏
+			Log.d(TAG, "NewsFragment hidden");
+		} else {// 被显示
+			Log.d(TAG, "NewsFragment display");
+		}
 	}
 
 	@Override

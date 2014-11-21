@@ -1,0 +1,25 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FinishActivity" >
+
+    <include
+        android:id="@+id/titlebar_finish"
+        layout="@layout/titlebar_activity" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/titlebar_finish"
+        android:padding="@dimen/activity_padding_normal" >
+
+        <Button
+            android:id="@+id/finish_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/blueBtnWithIcon"
+            android:text="Finish Except IndexActivity" />
+    </RelativeLayout>
+
+</RelativeLayout>

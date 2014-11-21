@@ -16,19 +16,29 @@ public class AccountFragment extends BaseFragment {
 		Log.d(TAG, "AccountFragment onCreateView called!");
 		root = inflater.inflate(R.layout.fragment_account, null);
 		super.init();
+		mListener.showToast("初始化:AccountFragment");
 		return root;
+	}
+	
+	@Override
+	public void onHiddenChanged(boolean hidden) {
+		// TODO Auto-generated method stub
+		super.onHiddenChanged(hidden);
+		if (hidden) {// 被隐藏
+			Log.d(TAG, "AccountFragment hidden");
+		} else {// 被显示
+			Log.d(TAG, "AccountFragment display");
+		}
 	}
 
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	protected void initComponent() {
 		// TODO Auto-generated method stub
-
 	}
 
 }

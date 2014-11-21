@@ -10,6 +10,8 @@ public interface MainListener {
 	 *            要展示的Fragment
 	 */
 	public void changeMainFragment(Fragment targetFragment);
+	
+	public void changeActivity(Class<?> cls);
 
 	/**
 	 * 切换主Fragment内容
@@ -32,6 +34,10 @@ public interface MainListener {
 	 */
 	public void showMenu();
 
+	/**
+	 * 隐藏左侧菜单
+	 */
+	public void hideMenu();
 	/**
 	 * 结束
 	 */
