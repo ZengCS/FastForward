@@ -1,0 +1,3 @@
+1.这两个压缩包是两个Library项目
+
+2.请将这里面的两个压缩包Copy到你的WorkSpace,并导入到Eclipse中,供主项目使用

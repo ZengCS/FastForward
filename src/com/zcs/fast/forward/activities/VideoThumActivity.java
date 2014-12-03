@@ -26,7 +26,14 @@ public class VideoThumActivity extends BaseActivity {
 	private static final String CURR_TITLE = "视频缩略图";
 	private static final int SCAN_VIDEO = 0;
 	private static final int SHOW_RESULT = 1;
+	private static final int CHECK_SCAN_STATE = 2;// 检测扫描状态
+
+	/**
+	 * 需要扫描的视频类型
+	 */
+	private static final String[] VIDEO_TYPES = { ".avi", ".mp4" };
 	private int videoCount = 0;// 视频总数
+	private long lastScanTime = 0;// 上一次调用扫描方法的时间
 
 	/** Views */
 	private LinearLayout videoListLayout;
@@ -47,6 +54,20 @@ public class VideoThumActivity extends BaseActivity {
 		public void handleMessage(Message msg) {
 			super.handleMessage(msg);
 			switch (msg.what) {
+			case CHECK_SCAN_STATE:// 开启扫描状态检测
+				LogUtil.d(TAG, "距离上次扫描的时间是:" + (System.currentTimeMillis() - lastScanTime));
+				if (videoCount > 0) {
+					break;
+				}
+
+				if ((System.currentTimeMillis() - lastScanTime) > 2000) {
+					showToast("没有扫描到任何视频！");
+					descTip.setText("没有扫描到任何视频！");
+					mHandler.removeMessages(CHECK_SCAN_STATE);
+				} else {
+					sendEmptyMessageDelayed(CHECK_SCAN_STATE, 1000);
+				}
+				break;
 			case SHOW_RESULT:// 展示结果
 				try {
 					videoCount++;
@@ -60,7 +81,9 @@ public class VideoThumActivity extends BaseActivity {
 				}
 				break;
 			case SCAN_VIDEO:
-				scanVieo();
+				lastScanTime = System.currentTimeMillis();
+				scanVideoGlobal(null);
+				mHandler.sendEmptyMessage(CHECK_SCAN_STATE);
 				break;
 			default:
 				break;
@@ -68,7 +91,12 @@ public class VideoThumActivity extends BaseActivity {
 		}
 	};
 
-	private class ScanTask extends AsyncTask<File, Void, String[]> {
+	/**
+	 * 获取视频缩略图的异步任务
+	 * 
+	 * @author ZengCS
+	 */
+	private class GetThumTask extends AsyncTask<File, Void, String[]> {
 		@Override
 		protected String[] doInBackground(File... params) {
 			try {
@@ -76,7 +104,7 @@ public class VideoThumActivity extends BaseActivity {
 				ImageView mImageView = new ImageView(VideoThumActivity.this);
 				TextView mTextView = new TextView(VideoThumActivity.this);
 				mImageView.setImageBitmap(ThumbnailUtil.getVideoThumbnail(f.getPath(), 0, 0, MediaStore.Images.Thumbnails.MINI_KIND));
-				mTextView.setText(f.getName() + "\n");
+				mTextView.setText(f.getPath() + "\n");
 				mTextView.setGravity(Gravity.CENTER);
 				Message msg = mHandler.obtainMessage(SHOW_RESULT);
 				View[] views = new View[] { mImageView, mTextView };
@@ -95,21 +123,31 @@ public class VideoThumActivity extends BaseActivity {
 	};
 
 	/**
-	 * 扫描视频文件
+	 * 递归扫描SDCard中的所有视频文件
 	 */
-	private void scanVieo() {
-		String videoDir = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "maiziedu" + File.separator + "course";
-		File dir = new File(videoDir);
-		for (File f : dir.listFiles()) {
-			if (f.getName().endsWith(".mp4")) {
-				new ScanTask().execute(f);
+	private void scanVideoGlobal(File dir) {
+		lastScanTime = System.currentTimeMillis();
+		if (dir == null) {
+			String baseDir = Environment.getExternalStorageDirectory().getAbsolutePath();
+			scanVideoGlobal(new File(baseDir));
+		} else {
+			for (File f : dir.listFiles()) {
+				if (f.isDirectory()) {
+					scanVideoGlobal(f);
+				} else if (f.isFile()) {
+					for (String s : VIDEO_TYPES) {
+						if (f.getName().endsWith(s)) {
+							new GetThumTask().execute(f);
+							break;
+						}
+					}
+				}
 			}
 		}
 	}
 
 	@Override
 	public void onClick(View v) {
-
 		switch (v.getId()) {
 		case R.id.titlebtn_left_act:// 返回
 			finish();
@@ -144,6 +182,12 @@ public class VideoThumActivity extends BaseActivity {
 	protected void initComponent() {
 		videoListLayout = (LinearLayout) findViewById(R.id.video_list_layout);
 		descTip = (TextView) findViewById(R.id.demo_desc_tip);
+	}
+
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		mHandler.removeMessages(CHECK_SCAN_STATE);
 	}
 
 }
