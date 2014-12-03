@@ -13,19 +13,27 @@
     <string name="title_activity_finish">FinishActivity</string>
     <string name="title_activity_search">SearchActivity</string>
 
+    <!-- Dialog title -->
+    <string name="txt_dialog_confirm">确认对话框</string>
+    <string name="txt_dialog_message">消息对话框</string>
+    <string name="txt_dialog_process">加载对话框</string>
+    <string name="txt_spinner_anim">请选择动画类型！</string>
+
     <!-- Dialog -->
     <string name="txt_alertdialog_title">提示</string>
     <string name="txt_alertdialog_title_success">找回成功</string>
     <string name="txt_alertdialog_title_failed">找回失败</string>
-    <string name="btn_confirm">确定</string>
-    <string name="btn_cancel_mz">取消</string>
-    <string name="btn_return">返回</string>
-    <string name="btn_share">分享</string>
+    <string name="txt_confirm">确定</string>
+    <string name="txt_cancel_mz">取消</string>
+    <string name="txt_return">返回</string>
+    <string name="txt_share">分享</string>
     <string name="dialog_dft_title">温馨提示</string>
-    <string name="mz_btn_ok">确定</string>
-    <string name="mz_btn_cancel">取消</string>
-    <string name="mz_btn_i_know">我知道了</string>
+    <string name="txt_ok">确定</string>
+    <string name="txt_cancel">取消</string>
+    <string name="txt_i_know">我知道了</string>
+    <string name="txt_add">添加</string>
     <string name="txt_about">关于</string>
+    <string name="txt_start">开始</string>
     <string name="txt_back">返回</string>
     <string name="dft_loading_txt">Loading&#8230;</string>
     <string name="title_activity_dialog">DialogActivity</string>
@@ -33,11 +41,18 @@
     <string name="title_activity_video_thum">VideoThumActivity</string>
     <string name="title_activity_help">HelpActivity</string>
     <string name="title_activity_custom_dialog">CustomDialogActivity</string>
+    <string name="title_activity_volley">VolleyActivity</string>
+    <string name="title_activity_recommend_course">RecommendCourseActivity</string>
+    <string name="title_activity_green_dao">GreenDaoActivity</string>
+    <string name="title_activity_text_switcher">TextSwitcherActivity</string>
+    <string name="title_activity_expandable_list">ExpandableListActivity</string>
 
-    <!-- Dialog title -->
-    <string name="txt_dialog_confirm">确认对话框</string>
-    <string name="txt_dialog_message">消息对话框</string>
-    <string name="txt_dialog_process">加载对话框</string>
+    <!-- data -->
+    <string name="data_load_db">读取数据库成功！</string>
+    <string name="data_loading">数据加载中&#8230;</string>
+    <string name="data_load_success">数据加载成功！</string>
+    <string name="data_load_failed">数据加载失败！</string>
+    <string name="count_morethan_99">99+</string>
 
     <!-- 功能介绍Description -->
     <string name="act_info">具体代码请查看:\n%1$s\n\n%2$s</string>
@@ -46,7 +61,14 @@
     <string name="act_desc">当前Activity的功能简介</string>
     <string name="multi_touch_desc">多点触控，实现图片拖拽与缩放！</string>
     <string name="video_thum_desc_scaning">正在扫描视频文件，请稍后&#8230;</string>
-    <string name="video_thum_desc">本地视频缩略图已生成！</string>
+    <string name="video_thum_desc">共为你找到 %1$s 个视频文件！</string>
     <string name="custom_dialog_desc">自定义对话框！</string>
+    <string name="volley_desc">通过Volley加载网络图片！</string>
+    <string name="recommend_course_desc">推荐您学习的课程！</string>
+    <string name="green_dao_desc">Android数据库框架GreenDAO！</string>
+    <string name="text_switcher_desc">利用TextSwitcher制作数字时钟！</string>
+    <string name="image_switcher_desc">利用ImageSwitcher制作焦点图！</string>
+    <string name="expandablelist_desc">使用ExpandableList实现好友列表！</string>
+    <string name="img_animation_type">图片切换时动画类型</string>
 
 </resources>

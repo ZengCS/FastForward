@@ -34,7 +34,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
+            android:layout_below="@id/demo_desc_tip"
             android:orientation="vertical" >
 
             <Button
@@ -42,7 +42,7 @@
                 style="@style/blueBtnWithIcon"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="15dip"
+                android:layout_marginTop="15dip"
                 android:text="@string/txt_dialog_confirm" />
 
             <Button
@@ -50,7 +50,7 @@
                 style="@style/blueBtnWithIcon"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="15dip"
+                android:layout_marginTop="15dip"
                 android:text="@string/txt_dialog_message" />
 
             <Button
@@ -58,6 +58,7 @@
                 style="@style/blueBtnWithIcon"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dip"
                 android:text="@string/txt_dialog_process" />
         </LinearLayout>
     </RelativeLayout>

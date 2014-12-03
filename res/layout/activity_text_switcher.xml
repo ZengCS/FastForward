@@ -1,0 +1,153 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.TextSwitcherActivity" >
+
+    <include
+        android:id="@+id/titlebar_textswitcher"
+        layout="@layout/titlebar_activity" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/titlebar_textswitcher"
+        android:padding="@dimen/activity_padding_normal" >
+
+        <!-- Demo功能简介 -->
+
+        <TextView
+            android:id="@+id/demo_desc_tip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:background="@drawable/bg_corner_gray"
+            android:drawableLeft="@drawable/ic_info"
+            android:gravity="center"
+            android:padding="5dip"
+            android:text="@string/text_switcher_desc"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <!-- Demo展示区域 -->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/demo_desc_tip"
+            android:background="@color/black_10p" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dip"
+                    android:layout_marginRight="5dip"
+                    android:layout_marginTop="5dip"
+                    android:background="@drawable/bg_corner_blue_top"
+                    android:gravity="center" >
+
+                    <TextSwitcher
+                        android:id="@+id/date_year"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" — "
+                        android:textColor="#FFFFFF"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextSwitcher
+                        android:id="@+id/date_month"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" — "
+                        android:textColor="#FFFFFF"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextSwitcher
+                        android:id="@+id/date_day"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dip"
+                    android:layout_marginLeft="5dip"
+                    android:layout_marginRight="5dip"
+                    android:background="@drawable/bg_corner_blue_bottom"
+                    android:gravity="center"
+                    android:orientation="horizontal" >
+
+                    <TextSwitcher
+                        android:id="@+id/date_hour"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" : "
+                        android:textColor="#FFFFFF"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextSwitcher
+                        android:id="@+id/date_minute"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" : "
+                        android:textColor="#FFFFFF"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextSwitcher
+                        android:id="@+id/date_second"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/curr_anim_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dip"
+                    android:background="@drawable/bg_corner_red"
+                    android:drawableLeft="@drawable/ic_info"
+                    android:gravity="center"
+                    android:padding="5dip"
+                    android:text="@string/app_name"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+                <Spinner
+                    android:id="@+id/anim_spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dip"
+                    android:drawSelectorOnTop="true"
+                    android:padding="5dip"
+                    android:prompt="@string/txt_spinner_anim" />
+            </LinearLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -64,7 +64,7 @@
             android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/mz_btn_cancel" />
+            android:text="@string/txt_cancel" />
 
         <ImageView
             android:id="@+id/dialog_btn_split_line"
@@ -79,7 +79,7 @@
             android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/mz_btn_ok" />
+            android:text="@string/txt_ok" />
     </LinearLayout>
 
 </LinearLayout>

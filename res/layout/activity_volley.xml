@@ -1,0 +1,63 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".VolleyActivity" >
+
+    <include
+        android:id="@+id/titlebar_volley"
+        layout="@layout/titlebar_activity" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/titlebar_volley"
+        android:padding="@dimen/activity_padding_normal" >
+
+        <!-- Demo功能简介 -->
+
+        <TextView
+            android:id="@+id/demo_desc_tip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:background="@drawable/bg_corner_gray"
+            android:drawableLeft="@drawable/ic_info"
+            android:gravity="center"
+            android:padding="5dip"
+            android:text="@string/volley_desc"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <!-- Demo展示区域 -->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/demo_desc_tip"
+            android:background="@color/black_10p" >
+
+            <ImageView
+                android:id="@+id/volley_img_1"
+                android:layout_width="match_parent"
+                android:layout_height="190dip"
+                android:background="@color/black_10p"
+                android:contentDescription="@null"
+                android:padding="2dip"
+                android:scaleType="fitXY"
+                android:src="@drawable/img_loading" />
+
+            <ImageView
+                android:id="@+id/volley_img_2"
+                android:layout_width="match_parent"
+                android:layout_height="190dip"
+                android:layout_below="@id/volley_img_1"
+                android:layout_marginTop="10dip"
+                android:background="@color/black_10p"
+                android:contentDescription="@null"
+                android:padding="2dip"
+                android:src="@drawable/img_loading" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,73 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GreenDaoActivity" >
+
+    <include
+        android:id="@+id/titlebar_green_dao"
+        layout="@layout/titlebar_activity" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/titlebar_green_dao"
+        android:padding="@dimen/activity_padding_normal" >
+
+        <!-- Demo功能简介 -->
+
+        <TextView
+            android:id="@+id/demo_desc_tip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:background="@drawable/bg_corner_gray"
+            android:drawableLeft="@drawable/ic_info"
+            android:gravity="center"
+            android:padding="5dip"
+            android:text="@string/green_dao_desc"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:id="@+id/demo_green_dao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/demo_desc_tip"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:orientation="horizontal" >
+
+            <EditText
+                android:id="@+id/green_dao_edit"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textSize="18sp"
+                android:background="@drawable/input_border"
+                android:inputType="text" />
+
+            <Button
+                android:id="@+id/green_dao_add"
+                style="@style/blueBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dip"
+                android:text="@string/txt_add" />
+        </LinearLayout>
+        <!-- Demo展示区域 -->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/demo_green_dao"
+            android:background="@color/black_10p" >
+
+            <ListView
+                android:id="@+id/green_dao_list"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" >
+            </ListView>
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

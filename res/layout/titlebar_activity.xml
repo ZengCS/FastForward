@@ -12,8 +12,7 @@
         android:layout_height="@dimen/theme_titlebtn_height"
         android:background="@drawable/bg_titlebtn_selector"
         android:orientation="horizontal"
-        android:paddingLeft="5dip"
-        android:paddingRight="10dip" >
+        android:paddingRight="5dip">
 
         <ImageView
             android:layout_width="wrap_content"

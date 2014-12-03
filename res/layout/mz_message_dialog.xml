@@ -58,6 +58,6 @@
         android:layout_marginBottom="1dip"
         android:layout_marginLeft="1dip"
         android:layout_marginRight="1dip"
-        android:text="@string/mz_btn_i_know" />
+        android:text="@string/txt_i_know" />
 
 </LinearLayout>

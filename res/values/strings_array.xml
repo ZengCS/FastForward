@@ -1,15 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- Expandable List -->
+    <string-array name="exp_parent">
+        <item>西游记</item>
+        <item>红楼梦</item>
+        <item>水浒传</item>
+        <item>三国演义</item>
+    </string-array>
+    <string-array name="exp_child">
+        <item>孙悟空,猪八戒,沙和尚,唐僧,白骨精,蜘蛛精,牛魔王,铁扇公主,红孩儿</item>
+        <item>林黛玉,贾宝玉,薛宝钗</item>
+        <item>宋江,武松,潘金莲,西门庆</item>
+        <item>刘备,关羽,张飞,诸葛亮,曹操</item>
+    </string-array>
+
+    <!-- 动画类型 -->
+    <string-array name="anim_list">
+        <item>PUSH_UP</item>
+        <item>PUSH_LEFT</item>
+        <item>ZOOM</item>
+        <item>FADE</item>
+    </string-array>
+    <string-array name="anim_list_imageswitcher">
+        <item>SLIDE</item>
+        <item>PUSH_UP</item>
+        <item>ZOOM</item>
+    </string-array>
+
+    <!-- 侧滑菜单 -->
     <string-array name="menu_list">
         <item>系统设置;SYSTEM_SETTING</item>
         <item>清空缓存;CLEAR_CACHE</item>
         <item>意见反馈;FEEDBACK</item>
-        <item>检测更新;UPDATE</item>
         <item>新手引导;NAVIGATE</item>
+        <item>检测更新;UPDATE</item>
         <item>版本信息;VERSION</item>
         <item>帮助FAQ;HELP_FAQ</item>
         <item>关于;ABOUT</item>
+    </string-array>
+
+    <!-- 帮助信息-必须满足1个问题1个答案的顺序 -->
+    <string-array name="help_list">
+        <item>麦子学院简介</item>
+        <item>国内第一家在美国建立商务中心的IT在线教育机构，目前已与美国知名教育公司取得合作，未来将源源不断向国内输出大量高质量教育资源。
+\n\n前身麦可网，2014年，麦可网完成千万级A轮融资，并更名为”麦子学院“，同时通过“麦子圈”IT职业实名社交圈——提供包括企业招聘对接，猎头，项目外包，经验分享，职业交友等一系列增值服务。
+\n\n做在线职业教育示范学院，将教育和课程做到极致。除了提供高质量的课程学习之外，也提供包括就业推荐，职业交友，项目外包，创业服务等全面的增值服务，并且线上线下结合，移动设备和传统网络相结合，打造IT职业教育的一个完整生态链。
+\n\n以高端IT技术型人才培养及服务为核心，探索及倡导技术交流创新模式。提供的不仅仅是技能培养，而是务实的职业导向。</item>
+        <item>什么是开源？</item>
+        <item>开源（Open Source，开放源码)被非盈利软件组织（美国的Open Source Initiative协会）注册为认证标记，并对其进行了正式的定义，用于描述那些源码可以被公众使用的软件，并且此软件的使用、修改和发行也不受许可证的限制。</item>
+        <item>Android是什么？</item>
+        <item>Android是由Google公司开发的操作系统。Android是一种基于Linux的自由及开放源代码的操作系统，主要使用于移动设备，如智能手机和平板电脑，由Google公司和开放手机联盟领导及开发。尚未有统一中文名称，中国大陆地区较多人使用“安卓”或“安致”。Android操作系统最初由Andy Rubin开发，主要支持手机。2005年8月由Google收购注资。2007年11月，Google与84家硬件制造商、软件开发商及电信营运商组建开放手机联盟共同研发改良Android系统。随后Google以Apache开源许可证的授权方式，发布了Android的源代码。第一部Android智能手机发布于2008年10月。Android逐渐扩展到平板电脑及其他领域上，如电视、数码相机、游戏机等。2011年第一季度，Android在全球的市场份额首次超过塞班系统，跃居全球第一。 2013年的第四季度，Android平台手机的全球市场份额已经达到78.1%。2013年09月24日谷歌开发的操作系统Android在迎来了5岁生日，全世界采用这款系统的设备数量已经达到10亿台。</item>
+        <item>IOS是什么？</item>
+        <item>iOS是由苹果公司开发的移动操作系统。苹果公司最早于2007年1月9日的Macworld大会上公布这个系统，最初是设计给iPhone使用的，后来陆续套用到iPod touch、iPad以及Apple TV等产品上。iOS与苹果的Mac OS X操作系统一样，它也是以Darwin为基础的，因此同样属于类Unix的商业操作系统。原本这个系统名为iPhone OS，因为iPad，iPhone，iPod touch都使用iPhone OS，所以2010WWDC大会上宣布改名为iOS（iOS为美国Cisco公司网络设备操作系统注册商标，苹果改名已获得Cisco公司授权）。</item>
+        <item>什么是Java？</item>
+        <item>java是一种可以撰写跨平台应用软件的面向对象的程序设计语言，是由Sun Microsystems公司于1995年5月推出的Java程序设计语言和Java平台（即JavaEE, JavaME, JavaSE）的总称。Java自面世后就非常流行，发展迅速，对C++语言形成了有力冲击。Java 技术具有卓越的通用性、高效性、平台移植性和安全性，广泛应用于个人PC、数据中心、游戏控制台、科学超级计算机、移动电话和互联网，同时拥有全球最大的开发者专业社群。在全球云计算和移动互联网的产业环境下，Java更具备了显著优势和广阔前景。</item>
+        <item>Nexus是什么手机品牌？</item>
+        <item>Nexus是Google公司的品牌，Nexus系列产品是Google公司研发的以原生Android为操作系统的智能手机、平板电脑等电子数码产品。同时，Nexus手机和平板电脑是Google为三星、LG、HTC、MOTO、ASUS等合作厂商提供的Android官方设计标准。</item>
     </string-array>
 
 </resources>

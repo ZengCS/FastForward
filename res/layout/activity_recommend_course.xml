@@ -1,0 +1,37 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RecommendCourseActivity" >
+
+    <include
+        android:id="@+id/titlebar_recommend"
+        layout="@layout/titlebar_activity" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/titlebar_recommend" >
+        
+        <!-- Demo展示区域 -->
+        <com.lee.pullrefresh.ui.PullToRefreshListView
+            android:id="@+id/pull_listview_recomend_list"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" />
+        
+        <!-- 提示信息 -->
+        <TextView
+            android:id="@+id/state_tip"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/black_40p"
+            android:drawableLeft="@drawable/ic_info"
+            android:gravity="center"
+            android:padding="5dip"
+            android:text="@string/data_loading"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+</RelativeLayout>

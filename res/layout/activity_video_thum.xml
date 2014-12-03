@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/activity_vertical_margin"
-            android:background="@drawable/bg_corner_gray"
+            android:background="@drawable/bg_corner_red"
             android:drawableLeft="@drawable/ic_info"
             android:gravity="center"
             android:padding="5dip"

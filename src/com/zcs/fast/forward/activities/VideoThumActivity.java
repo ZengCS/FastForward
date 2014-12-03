@@ -3,6 +3,7 @@ package com.zcs.fast.forward.activities;
 import java.io.File;
 
 import android.annotation.SuppressLint;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
@@ -24,6 +25,8 @@ public class VideoThumActivity extends BaseActivity {
 	/** constant */
 	private static final String CURR_TITLE = "视频缩略图";
 	private static final int SCAN_VIDEO = 0;
+	private static final int SHOW_RESULT = 1;
+	private int videoCount = 0;// 视频总数
 
 	/** Views */
 	private LinearLayout videoListLayout;
@@ -44,12 +47,50 @@ public class VideoThumActivity extends BaseActivity {
 		public void handleMessage(Message msg) {
 			super.handleMessage(msg);
 			switch (msg.what) {
+			case SHOW_RESULT:// 展示结果
+				try {
+					videoCount++;
+					View[] views = (View[]) msg.obj;
+					videoListLayout.addView(views[0]);
+					videoListLayout.addView(views[1]);
+					descTip.setText(getString(R.string.video_thum_desc, videoCount));
+					descTip.setBackgroundResource(R.drawable.bg_corner_green);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				break;
 			case SCAN_VIDEO:
 				scanVieo();
 				break;
 			default:
 				break;
 			}
+		}
+	};
+
+	private class ScanTask extends AsyncTask<File, Void, String[]> {
+		@Override
+		protected String[] doInBackground(File... params) {
+			try {
+				File f = params[0];
+				ImageView mImageView = new ImageView(VideoThumActivity.this);
+				TextView mTextView = new TextView(VideoThumActivity.this);
+				mImageView.setImageBitmap(ThumbnailUtil.getVideoThumbnail(f.getPath(), 0, 0, MediaStore.Images.Thumbnails.MINI_KIND));
+				mTextView.setText(f.getName() + "\n");
+				mTextView.setGravity(Gravity.CENTER);
+				Message msg = mHandler.obtainMessage(SHOW_RESULT);
+				View[] views = new View[] { mImageView, mTextView };
+				msg.obj = views;
+				mHandler.sendMessage(msg);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return null;
+		}
+
+		@Override
+		protected void onPostExecute(String[] result) {
+			super.onPostExecute(result);
 		}
 	};
 
@@ -61,21 +102,9 @@ public class VideoThumActivity extends BaseActivity {
 		File dir = new File(videoDir);
 		for (File f : dir.listFiles()) {
 			if (f.getName().endsWith(".mp4")) {
-				try {
-					ImageView mImageView = new ImageView(this);
-					TextView mTextView = new TextView(this);
-					mImageView.setImageBitmap(ThumbnailUtil.getVideoThumbnail(f.getPath(), 0, 0, MediaStore.Images.Thumbnails.MINI_KIND));
-					mTextView.setText(f.getName() + "\n");
-					mTextView.setGravity(Gravity.CENTER);
-
-					videoListLayout.addView(mImageView);
-					videoListLayout.addView(mTextView);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
+				new ScanTask().execute(f);
 			}
 		}
-		descTip.setText(getString(R.string.video_thum_desc));
 	}
 
 	@Override

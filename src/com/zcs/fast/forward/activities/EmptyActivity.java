@@ -13,6 +13,8 @@ import com.zcs.fast.forward.utils.LogUtil;
 public class EmptyActivity extends BaseActivity {
 	/** constant */
 	private static final String CURR_TITLE = "EmptyActivity";
+	
+	/** Views */
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

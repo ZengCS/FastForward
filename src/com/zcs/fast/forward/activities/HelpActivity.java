@@ -1,30 +1,61 @@
 package com.zcs.fast.forward.activities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.zcs.fast.forward.R;
+import com.zcs.fast.forward.adapter.HelpListAdapter;
 import com.zcs.fast.forward.base.BaseActivity;
+import com.zcs.fast.forward.entity.ListItemEntity;
 import com.zcs.fast.forward.utils.LogUtil;
 
 public class HelpActivity extends BaseActivity {
 	/** constant */
 	private static final String CURR_TITLE = "帮助FAQ";
 
+	/** The Help ListView */
+	private ListView mListView;
+	private List<ListItemEntity> helpList;
+	private HelpListAdapter mAdapter;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_help);
 		super.init();
+		initHelpListView();
+	}
+
+	/**
+	 * 初始化菜单列表
+	 */
+	private void initHelpListView() {
+		// TODO 初始化菜单列表
+		helpList = new ArrayList<ListItemEntity>(0);
+		String[] helpArr = getResources().getStringArray(R.array.help_list);
+		for (int i = 0; i < helpArr.length;) {
+			ListItemEntity item = new ListItemEntity();
+			item.setQuestion(helpArr[i]);
+			i++;
+			item.setAnswer(helpArr[i]);
+			i++;
+			helpList.add(item);
+		}
+		mAdapter = new HelpListAdapter(this, helpList);
+		mListView.setAdapter(mAdapter);
 	}
 
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-		case R.id.titlebtn_left_act:
+		case R.id.titlebtn_left_act:// 返回
 			finish();
 			break;
 		case R.id.titlebtn_right_act:// 查看
@@ -55,6 +86,7 @@ public class HelpActivity extends BaseActivity {
 	@Override
 	protected void initComponent() {
 		// TODO 初始化组件
+		mListView = (ListView) findViewById(R.id.list_help_faq);
 	}
 
 	@Override

@@ -23,7 +23,6 @@ public class BitmapCache implements ImageCache {
 
 	@Override
 	public Bitmap getBitmap(String url) {
-//		LogUtil.i(MZVolleyUtils.TAG, "get:BitmapCache size:" + mCache.size());
 		return mCache.get(url);
 	}
 

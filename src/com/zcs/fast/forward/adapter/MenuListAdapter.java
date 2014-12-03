@@ -11,14 +11,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.zcs.fast.forward.R;
-import com.zcs.fast.forward.entity.MenuItemEntity;
+import com.zcs.fast.forward.entity.ListItemEntity;
 
 public class MenuListAdapter extends BaseAdapter {
 
 	private LayoutInflater mInflater;
-	private List<MenuItemEntity> items;
+	private List<ListItemEntity> items;
 
-	public MenuListAdapter(Context context, List<MenuItemEntity> itemList) {
+	public MenuListAdapter(Context context, List<ListItemEntity> itemList) {
 		mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		this.items = itemList;
 	}
@@ -47,22 +47,25 @@ public class MenuListAdapter extends BaseAdapter {
 			holder = new ViewHolder();
 			holder.name = (TextView) convertView.findViewById(R.id.item_menu_name);
 			holder.icon = (ImageView) convertView.findViewById(R.id.item_menu_icon);
+			holder.desc = (TextView) convertView.findViewById(R.id.item_menu_desc);
 
 			convertView.setTag(holder);
 		} else {
 			holder = (ViewHolder) convertView.getTag();
 		}
 
-		MenuItemEntity item = items.get(position);
+		ListItemEntity item = items.get(position);
 
 		holder.name.setText(item.getName());
 		holder.icon.setImageResource(item.getDrawable());
+		holder.desc.setText(item.getDesc());
 
 		return convertView;
 	}
 
 	private static class ViewHolder {
 		TextView name;
+		TextView desc;
 		ImageView icon;
 	}
 
@@ -71,7 +74,7 @@ public class MenuListAdapter extends BaseAdapter {
 	 * 
 	 * @param newList
 	 */
-	public void notifyDataSetChanged(List<MenuItemEntity> newList) {
+	public void notifyDataSetChanged(List<ListItemEntity> newList) {
 		this.items = newList;
 		notifyDataSetChanged();
 	}

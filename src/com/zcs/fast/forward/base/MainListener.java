@@ -42,4 +42,6 @@ public interface MainListener {
 	 * 结束
 	 */
 	public void exitApp();
+	
+	public String getVersionName();
 }

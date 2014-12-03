@@ -10,11 +10,10 @@ import com.zcs.fast.forward.R;
 import com.zcs.fast.forward.base.BaseFragment;
 
 public class NewsFragment extends BaseFragment {
-
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		Log.d(TAG, "NewsFragment onCreateView called!");
-		root = inflater.inflate(R.layout.fragment_news, null);
+		root = inflater.inflate(R.layout.fragment_favorite, null);
 		super.init();
 		mListener.showToast("初始化:NewsFragment");
 		return root;

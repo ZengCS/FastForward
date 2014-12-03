@@ -19,7 +19,7 @@ public abstract class BaseFragment extends Fragment implements OnClickListener {
 		mListener = (MainListener) activity;
 		mContext = activity;
 	}
-
+	
 	/**
 	 * 初始化布局,内部调用initTitlebar()和initComponent()
 	 */

@@ -1,5 +1,6 @@
 package com.zcs.fast.forward.base;
 
+import com.google.gson.Gson;
 import com.zcs.fast.forward.R;
 import com.zcs.fast.forward.utils.dialog.DialogParam;
 import com.zcs.fast.forward.utils.dialog.DialogUtil;
@@ -20,6 +21,7 @@ import android.widget.Toast;
 public abstract class BaseActivity extends Activity implements OnClickListener {
 	protected final static String TAG = "BaseActivity";
 	protected Dialog mHelpDialog;
+	protected Gson gson;
 
 	/**
 	 * 屏幕尺寸
@@ -38,10 +40,12 @@ public abstract class BaseActivity extends Activity implements OnClickListener {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		getWindow().setBackgroundDrawable(null);
 		DisplayMetrics mDisplayMetrics = new DisplayMetrics();
 		getWindowManager().getDefaultDisplay().getMetrics(mDisplayMetrics);
 		screenWidth = mDisplayMetrics.widthPixels;
 		screenHeight = mDisplayMetrics.heightPixels;
+		gson = new Gson();
 	}
 
 	/**

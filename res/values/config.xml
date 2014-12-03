@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 滚动图片速度 -->
+    <integer name="anim_very_fast">200</integer>
+    <integer name="anim_fast">300</integer>
+    <integer name="anim_normal">400</integer>
+    <integer name="anim_slow">600</integer>
+    <integer name="anim_very_slow">1000</integer>
+
+   <!-- AutoScrollTime -->
+    <integer name="auto_scroll_time">3000</integer>
+</resources>

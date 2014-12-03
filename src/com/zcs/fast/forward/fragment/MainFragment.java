@@ -29,6 +29,7 @@ import com.zcs.fast.forward.utils.PullRefreshUtil;
 
 @SuppressLint("HandlerLeak")
 public class MainFragment extends BaseFragment {
+	protected static final int HIDE_LOADING_STATE_DELAY = 0;// 延时隐藏
 	/** My Views */
 
 	/** PullToRefresh */
@@ -51,7 +52,7 @@ public class MainFragment extends BaseFragment {
 		public void handleMessage(Message msg) {
 			super.handleMessage(msg);
 			switch (msg.what) {
-			case 0:
+			case HIDE_LOADING_STATE_DELAY:
 				mPullGridView.onPullDownRefreshComplete();
 				mPullGridView.onPullUpRefreshComplete();
 
@@ -102,7 +103,7 @@ public class MainFragment extends BaseFragment {
 		mPullGridView.setOnRefreshListener(new OnRefreshListener<GridView>() {
 			@Override
 			public void onPullDownToRefresh(PullToRefreshBase<GridView> refreshView) {
-				mHandler.removeMessages(0);
+				mHandler.removeMessages(HIDE_LOADING_STATE_DELAY);
 				mHandler.sendEmptyMessageDelayed(0, 2000);
 			}
 
@@ -111,6 +112,7 @@ public class MainFragment extends BaseFragment {
 				// TODO 上拉加载更多,这里没有更多
 			}
 		});
+		setLastUpdateTime();
 		// mPullGridView.doPullRefreshing(true, 200);
 	}
 
@@ -150,7 +152,7 @@ public class MainFragment extends BaseFragment {
 		// TODO 初始化组件
 		LogUtil.d(TAG, "initComponent complete");
 	}
-	
+
 	public void setLastUpdateTime() {
 		String text = formatDateTime(System.currentTimeMillis());
 		mPullGridView.setLastUpdatedLabel(text);

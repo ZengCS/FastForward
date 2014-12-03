@@ -14,15 +14,17 @@ import com.zcs.fast.forward.base.BaseFragment;
 
 public class TabFragment extends BaseFragment {
 	/** tabs */
-	private ImageView tab1, tab2, tab3;
+	private ImageView tab1, tab2, tab3, tab4;
 	private ImageView[] tabs;
-	private int[] tabOnIcons = { R.drawable.tab_1_on, R.drawable.tab_2_on, R.drawable.tab_3_on };
+	private static final int[] TAB_ON_ICONS = { R.drawable.tab_1_on, R.drawable.tab_2_on, R.drawable.tab_3_on };
 
 	/** Fragments */
 	public static MainFragment mainFragment;
+	public static Fragment currFragment = null;
+
 	private NewsFragment newsFragment;
 	private AccountFragment accountFragment;
-	public static Fragment currFragment = null;
+	private InboxFragment inboxFragment;
 
 	@Override
 	public void onAttach(Activity activity) {
@@ -47,8 +49,9 @@ public class TabFragment extends BaseFragment {
 		tab1.setImageResource(R.drawable.tab_1);
 		tab2.setImageResource(R.drawable.tab_2);
 		tab3.setImageResource(R.drawable.tab_3);
+		// tab4.setImageResource(R.drawable.tab_4);
 		index--;
-		tabs[index].setImageResource(tabOnIcons[index]);
+		tabs[index].setImageResource(TAB_ON_ICONS[index]);
 	}
 
 	@Override
@@ -78,6 +81,14 @@ public class TabFragment extends BaseFragment {
 			mListener.changeMainFragment(currFragment, accountFragment);
 			currFragment = accountFragment;
 			break;
+		// case R.id.index_tab_4:
+		// tabSelection(4);
+		// if (inboxFragment == null) {
+		// inboxFragment = new InboxFragment();
+		// }
+		// mListener.changeMainFragment(currFragment, inboxFragment);
+		// currFragment = inboxFragment;
+		// break;
 		default:
 			break;
 		}
@@ -85,15 +96,18 @@ public class TabFragment extends BaseFragment {
 
 	@Override
 	protected void initComponent() {
-		tabs = new ImageView[3];
+		tabs = new ImageView[TAB_ON_ICONS.length];
 		tab1 = (ImageView) root.findViewById(R.id.index_tab_1);
 		tab2 = (ImageView) root.findViewById(R.id.index_tab_2);
 		tab3 = (ImageView) root.findViewById(R.id.index_tab_3);
+		// tab4 = (ImageView) root.findViewById(R.id.index_tab_4);
 		tabs[0] = tab1;
 		tabs[1] = tab2;
 		tabs[2] = tab3;
+		// tabs[3] = tab4;
 		tab1.setOnClickListener(this);
 		tab2.setOnClickListener(this);
 		tab3.setOnClickListener(this);
+		// tab4.setOnClickListener(this);
 	}
 }
