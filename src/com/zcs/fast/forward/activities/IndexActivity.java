@@ -158,7 +158,7 @@ public class IndexActivity extends BaseFragmentActivity implements MainListener 
 		titleBtnLeft.setOnClickListener(this);
 		titleBtnRight.setOnClickListener(this);
 		// 隐藏右侧搜索按钮
-		titleBtnRight.setVisibility(View.GONE);
+		titleBtnRight.setVisibility(View.INVISIBLE);
 		titleTxtCenter.setOnClickListener(this);
 
 		LogUtil.d(TAG, "initTitlebar complete");
