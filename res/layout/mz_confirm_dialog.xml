@@ -60,7 +60,7 @@
 
         <Button
             android:id="@+id/dialog_btn_cancel"
-            style="@style/mz_dialog_btn"
+            style="@style/custom_dialog_btn"
             android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -75,7 +75,7 @@
 
         <Button
             android:id="@+id/dialog_btn_ok"
-            style="@style/mz_dialog_btn"
+            style="@style/custom_dialog_btn"
             android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:layout_weight="1"

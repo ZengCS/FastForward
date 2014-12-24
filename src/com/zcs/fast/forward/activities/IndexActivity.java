@@ -23,16 +23,19 @@ import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
+import android.widget.PopupWindow.OnDismissListener;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
+import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu.OnOpenedListener;
 import com.zcs.fast.forward.R;
 import com.zcs.fast.forward.base.BaseFragmentActivity;
 import com.zcs.fast.forward.base.MainListener;
 import com.zcs.fast.forward.fragment.MainFragment;
 import com.zcs.fast.forward.fragment.MenuFragment;
 import com.zcs.fast.forward.fragment.TabFragment;
+import com.zcs.fast.forward.sqlite.GreenDAOManger;
 import com.zcs.fast.forward.utils.LogUtil;
 import com.zcs.fast.forward.utils.dialog.DialogParam;
 import com.zcs.fast.forward.utils.dialog.DialogUtil;
@@ -50,6 +53,7 @@ public class IndexActivity extends BaseFragmentActivity implements MainListener 
 	private boolean isSplashFinish = false;// 是否已经初始化完成
 	/** Dialogs */
 	private Dialog confirmDialog;
+	private PopupWindow popupWindow;
 
 	/** SlidingMenu */
 	private SlidingMenu menu;
@@ -62,6 +66,9 @@ public class IndexActivity extends BaseFragmentActivity implements MainListener 
 		super.onCreate(savedInstanceState);
 		// set the Above View
 		setContentView(R.layout.fragment_index);
+
+		// 初始化GreenDAOManger
+		GreenDAOManger.init(this);
 
 		// 设置内容Fragment(主)
 		TabFragment.mainFragment = new MainFragment();
@@ -83,7 +90,17 @@ public class IndexActivity extends BaseFragmentActivity implements MainListener 
 		menu.setFadeDegree(0.35f);
 		menu.attachToActivity(this, SlidingMenu.SLIDING_CONTENT);
 		menu.setMenu(R.layout.menu_frame);
-		getSupportFragmentManager().beginTransaction().replace(R.id.menu_frame, new MenuFragment()).commit();
+
+		final MenuFragment menuFragment = new MenuFragment();
+		getSupportFragmentManager().beginTransaction().replace(R.id.menu_frame, menuFragment).commit();
+
+		menu.setOnOpenedListener(new OnOpenedListener() {
+			@Override
+			public void onOpened() {
+				// TODO 刷新缓存大小
+				menuFragment.refreshCacheSize();
+			}
+		});
 
 		super.init();
 		this.initConfirmDialog();
@@ -212,8 +229,6 @@ public class IndexActivity extends BaseFragmentActivity implements MainListener 
 		}
 	}
 
-	private PopupWindow popupWindow;
-
 	/**
 	 * 展示POP菜单
 	 */
@@ -236,6 +251,13 @@ public class IndexActivity extends BaseFragmentActivity implements MainListener 
 		int popY = location[1] + parent.getHeight() - 2;
 
 		popupWindow.showAtLocation(parent, Gravity.NO_GRAVITY, popX, popY);
+
+		popupWindow.setOnDismissListener(new OnDismissListener() {
+			@Override
+			public void onDismiss() {
+				showToast("众神退去吧!");
+			}
+		});
 	}
 
 	@Override
@@ -360,5 +382,17 @@ public class IndexActivity extends BaseFragmentActivity implements MainListener 
 			e.printStackTrace();
 			return "";
 		}
+	}
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+		// showToast("IndexActivity onPause called");
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		// showToast("IndexActivity onResume called");
 	}
 }

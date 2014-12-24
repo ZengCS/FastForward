@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/down_item_height"
+    android:background="@drawable/bg_list_selector"
+    android:paddingBottom="2dip"
+    android:paddingTop="2dip" >
+
+    <com.zcs.fast.forward.widget.CustomProgressBar
+        android:id="@+id/down_percent_progress"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/down_item_height"
+        android:background="@drawable/bg_list_selector_down" />
+
+    <ImageView
+        android:id="@+id/down_type_icon"
+        android:layout_width="@dimen/down_item_height"
+        android:layout_height="@dimen/down_item_height"
+        android:contentDescription="@null"
+        android:padding="5dip"
+        android:src="@drawable/ic_android" />
+
+    <ImageView
+        android:id="@+id/down_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/down_type_icon"
+        android:contentDescription="@null"
+        android:layout_centerVertical="true"
+        android:paddingRight="5dip"
+        android:src="@drawable/down" />
+
+    <TextView
+        android:id="@+id/down_percent"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/down_item_height"
+        android:layout_alignParentRight="true"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dip"
+        android:paddingRight="10dip"
+        android:text="@string/dft_percent"
+        android:textColor="@color/gray" />
+
+    <TextView
+        android:id="@+id/down_name"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/down_item_height_top"
+        android:layout_toLeftOf="@id/down_percent"
+        android:layout_toRightOf="@id/down_state"
+        android:gravity="center_vertical"
+        android:paddingTop="5dip"
+        android:singleLine="true"
+        android:text="@string/dft_file_name"
+        android:textColor="@color/github_blue"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/down_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/down_percent"
+        android:layout_toRightOf="@+id/down_state"
+        android:paddingBottom="6dip"
+        android:singleLine="true"
+        android:text="@string/down_click_start"
+        android:textColor="@color/gray_f8"
+        android:textSize="12sp" />
+
+</RelativeLayout>

@@ -5,6 +5,7 @@
     <string name="hello_world">Welcome to Fast-Forward</string>
     <string name="btn_open">Open Other Activity</string>
     <string name="btn_exit">注销并退出</string>
+    <string name="btn_exit_act">退出当前Activity</string>
     <string name="exit_confirm_msg">你确定要注销并退出吗？\n(退出不会删除任何缓存数据！)</string>
     <string name="title_activity_empty">EmptyActivity</string>
     <string name="action_settings">设置</string>
@@ -12,11 +13,13 @@
     <string name="splash_version">&#169;CopyRight ZengCS 2014</string>
     <string name="title_activity_finish">FinishActivity</string>
     <string name="title_activity_search">SearchActivity</string>
+    <string name="dft_file_name">时光飞逝.mp4</string>
 
     <!-- Dialog title -->
     <string name="txt_dialog_confirm">确认对话框</string>
     <string name="txt_dialog_message">消息对话框</string>
     <string name="txt_dialog_process">加载对话框</string>
+    <string name="txt_dialog_bottom">底部弹出式对话框</string>
     <string name="txt_spinner_anim">请选择动画类型！</string>
 
     <!-- Dialog -->
@@ -24,7 +27,6 @@
     <string name="txt_alertdialog_title_success">找回成功</string>
     <string name="txt_alertdialog_title_failed">找回失败</string>
     <string name="txt_confirm">确定</string>
-    <string name="txt_cancel_mz">取消</string>
     <string name="txt_return">返回</string>
     <string name="txt_share">分享</string>
     <string name="dialog_dft_title">温馨提示</string>
@@ -68,7 +70,25 @@
     <string name="green_dao_desc">Android数据库框架GreenDAO！</string>
     <string name="text_switcher_desc">利用TextSwitcher制作数字时钟！</string>
     <string name="image_switcher_desc">利用ImageSwitcher制作焦点图！</string>
+    <string name="view_pager_focus_desc">利用ViewPager制作焦点图！</string>
     <string name="expandablelist_desc">使用ExpandableList实现好友列表！</string>
+    <string name="check_list_desc">带CheckBox的ListView实现全选！</string>
     <string name="img_animation_type">图片切换时动画类型</string>
+    <string name="gif_view_desc">自定义GifView实现gif图片播放！</string>
+    <string name="gif_view_notice">1.当前Activity必须关闭硬件加速,在AndroidManifest.xml中为对应的Activity添加[android:hardwareAccelerated=\"false\"]\n\n2.必须在布局文件顶部引入[xmlns:android_custom=\"http://schemas.android.com/apk/res/com.zcs.fast.forward\"],否则无法使用自定义属性\n\n3.GifView设置的gif_name如果是一个非法的gif图片名称,那么将提示[无效图片]</string>
+    <string name="title_activity_offline_download">OfflineDownloadActivity</string>
+    <string name="dft_percent">10%</string>
+    <string name="down_start">下载</string>
+    <string name="down_init">初始化</string>
+    <string name="down_continue">继续</string>
+    <string name="down_pause">暂停</string>
+    <string name="down_stop">停止</string>
+    <string name="down_delete">删除</string>
+    <string name="down_delete_ok">确认删除</string>
+    <string name="down_click_start">点击开始下载</string>
+    <string name="down_click_remove">已加入下载队列，点击移除</string>
+    <string name="title_activity_view_flip">ViewFlipActivity</string>
+    <string name="title_activity_view_pager_focus_image">ViewPagerFocusImageActivity</string>
+    <string name="title_activity_list_view_check_all">ListViewCheckAllActivity</string>
 
 </resources>

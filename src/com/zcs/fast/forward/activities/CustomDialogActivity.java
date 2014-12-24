@@ -21,8 +21,8 @@ public class CustomDialogActivity extends BaseActivity {
 	private static final String CURR_TITLE = "自定义对话框";
 
 	/** Views */
-	private Button cfmBtn, msgBtn, proBtn;
-	private Dialog confirmDialog, messageDialog, processDialog;
+	private Button cfmBtn, msgBtn, proBtn, bottomBtn;
+	private Dialog confirmDialog, messageDialog, processDialog, bottomDialog;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -104,6 +104,19 @@ public class CustomDialogActivity extends BaseActivity {
 				}
 			}, 3000);
 			break;
+		case R.id.btn_custom_dialog_bottom:// 展示底部弹出式对话框
+			if (bottomDialog == null) {
+				initBottomDialog();
+			}
+			bottomDialog.show();
+			break;
+		case R.id.dialog_bottom_btn_ok:// 底部弹出对话框-退出
+			bottomDialog.dismiss();
+			finish();
+			break;
+		case R.id.dialog_bottom_btn_cancel:// 底部弹出对话框-取消
+			bottomDialog.dismiss();
+			break;
 		case R.id.titlebtn_left_act:
 			finish();
 			break;
@@ -113,6 +126,21 @@ public class CustomDialogActivity extends BaseActivity {
 		default:
 			break;
 		}
+	}
+
+	/**
+	 * 初始化底部Dialog
+	 */
+	private void initBottomDialog() {
+		View dialogView = getLayoutInflater().inflate(R.layout.dialog_bottom, null);
+		TextView titleView = (TextView) dialogView.findViewById(R.id.dialog_bottom_title);
+
+		titleView.setText("你确定要关闭当前Activity吗？");
+		dialogView.findViewById(R.id.dialog_bottom_btn_ok).setOnClickListener(this);
+		dialogView.findViewById(R.id.dialog_bottom_btn_cancel).setOnClickListener(this);
+
+		// 创建Dialog
+		bottomDialog = DialogUtil.createBottomDialog(dialogView, this);
 	}
 
 	@Override
@@ -138,10 +166,12 @@ public class CustomDialogActivity extends BaseActivity {
 		msgBtn = (Button) findViewById(R.id.btn_custom_dialog_message);
 		cfmBtn = (Button) findViewById(R.id.btn_custom_dialog_confirm);
 		proBtn = (Button) findViewById(R.id.btn_custom_dialog_process);
+		bottomBtn = (Button) findViewById(R.id.btn_custom_dialog_bottom);
 
 		msgBtn.setOnClickListener(this);
 		cfmBtn.setOnClickListener(this);
 		proBtn.setOnClickListener(this);
+		bottomBtn.setOnClickListener(this);
 	}
 
 	@Override

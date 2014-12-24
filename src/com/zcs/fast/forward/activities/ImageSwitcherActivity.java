@@ -25,8 +25,9 @@ public class ImageSwitcherActivity extends BaseActivity implements ViewFactory, 
 	/** constant */
 	private static final String CURR_TITLE = "Android焦点图";
 
-	protected static final int UPDATE_ANIMATION_STATE = 0;
-	protected static final int AUTO_SCROLL = 1;// 自动滚动
+	protected static final int UPDATE_ANIMATION_STATE = 0x1f0001;// 更新动画状态
+	protected static final int AUTO_SCROLL = 0x1f0002;// 自动滚动
+
 	protected static final int SHOW_PRE_PIC = 0;// 显示上一张图片
 	protected static final int SHOW_NEXT_PIC = 1;// 显示下一张图片
 
@@ -217,6 +218,8 @@ public class ImageSwitcherActivity extends BaseActivity implements ViewFactory, 
 		mHandler.removeMessages(AUTO_SCROLL);
 	}
 
+	private boolean isMoving = false;
+
 	@SuppressLint("ClickableViewAccessibility")
 	@Override
 	public boolean onTouch(View v, MotionEvent event) {
@@ -224,7 +227,14 @@ public class ImageSwitcherActivity extends BaseActivity implements ViewFactory, 
 			// 如果当前正在切换图片,禁止再次拖动图片
 			return false;
 		}
-		if (event.getAction() == MotionEvent.ACTION_DOWN) {
+		boolean isResponse = false;
+
+		switch (event.getAction() & MotionEvent.ACTION_MASK) {
+		case MotionEvent.ACTION_DOWN:
+			LogUtil.d(TAG, "***************ACTION_DOWN");
+			// 禁止父类View滚动
+			v.getParent().requestDisallowInterceptTouchEvent(true);
+
 			// 取得左右滑动时手指按下的X坐标
 			touchDownX = event.getX();
 			touchDownY = event.getY();
@@ -232,8 +242,26 @@ public class ImageSwitcherActivity extends BaseActivity implements ViewFactory, 
 			downTime = System.currentTimeMillis();
 			// 手动滑的时候,暂停自动滚动
 			mHandler.removeMessages(AUTO_SCROLL);
-			return true;
-		} else if (event.getAction() == MotionEvent.ACTION_UP) {
+			isResponse = true;
+			break;
+		case MotionEvent.ACTION_MOVE:
+			if (!isMoving && (event.getX() != touchDownX || event.getY() != touchDownY)) {
+				LogUtil.d(TAG, "***************ACTION_MOVE");
+				float mx = event.getX();
+				float my = event.getY();
+				LogUtil.d(TAG, "mx:" + mx);
+				LogUtil.d(TAG, "touchDownX:" + touchDownX);
+
+				LogUtil.d(TAG, "my:" + my);
+				LogUtil.d(TAG, "touchDownY:" + touchDownY);
+				isMoving = true;
+
+				// 开启父类View滚动
+				v.getParent().requestDisallowInterceptTouchEvent(false);
+			}
+			break;
+		case MotionEvent.ACTION_UP:
+			LogUtil.d(TAG, "***************ACTION_UP");
 			// 取得左右滑动时手指松开的X坐标
 			touchUpX = event.getX();
 			touchUpY = event.getY();
@@ -249,10 +277,17 @@ public class ImageSwitcherActivity extends BaseActivity implements ViewFactory, 
 			else if (Math.abs(touchDownY - touchUpY) < 10 && Math.abs(touchDownX - touchUpX) < 10 && System.currentTimeMillis() - downTime < 200) {
 				showToast("触发点击事件,pictureIndex:" + pictureIndex);
 				showDetail();
+			} else {
+				// 因为我们在触摸的时候曾关闭过自动滚动,所以这里再次开启
+				startAutoScroll();
 			}
-			return true;
+			isResponse = true;
+			// 开启父类View滚动
+			v.getParent().requestDisallowInterceptTouchEvent(false);
+			isMoving = false;
 		}
-		return false;
+
+		return isResponse;
 	}
 
 	private void showDetail() {

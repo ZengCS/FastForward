@@ -1,0 +1,155 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:android_custom="http://schemas.android.com/apk/res/com.zcs.fast.forward"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.GifViewActivity" >
+
+    <include
+        android:id="@+id/titlebar_gifview"
+        layout="@layout/titlebar_activity" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/titlebar_gifview"
+        android:padding="@dimen/activity_padding_normal" >
+
+        <!-- Demo功能简介 -->
+
+        <TextView
+            android:id="@+id/demo_desc_tip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:background="@drawable/bg_corner_gray"
+            android:drawableLeft="@drawable/ic_info"
+            android:gravity="center"
+            android:padding="5dip"
+            android:text="@string/gif_view_desc"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <!-- Demo展示区域 -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/demo_desc_tip"
+            android:background="@color/black_10p"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dip"
+                android:background="#CCCCCC"
+                android:orientation="horizontal"
+                android:paddingLeft="1dip"
+                android:paddingRight="1dip"
+                android:paddingTop="1dip" >
+
+                <com.zcs.fast.forward.widget.GifView
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_margin="1dip"
+                    android:layout_weight="1"
+                    android_custom:gif_name="aoda_cat_1" />
+
+                <com.zcs.fast.forward.widget.GifView
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_margin="1dip"
+                    android:layout_weight="1"
+                    android_custom:gif_name="aoda_cat_2" />
+
+                <com.zcs.fast.forward.widget.GifView
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_margin="1dip"
+                    android:layout_weight="1"
+                    android_custom:gif_name="aoda_cat_3" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dip"
+                android:background="#CCCCCC"
+                android:orientation="horizontal"
+                android:paddingLeft="1dip"
+                android:paddingRight="1dip" >
+
+                <com.zcs.fast.forward.widget.GifView
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_margin="1dip"
+                    android:layout_weight="1"
+                    android_custom:gif_name="aoda_cat_4" />
+
+                <com.zcs.fast.forward.widget.GifView
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_margin="1dip"
+                    android:layout_weight="1"
+                    android_custom:gif_name="aoda_cat_5" />
+
+                <com.zcs.fast.forward.widget.GifView
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_margin="1dip"
+                    android:layout_weight="1"
+                    android_custom:gif_name="error_gif_pic" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dip"
+                android:background="#CCCCCC"
+                android:orientation="horizontal"
+                android:paddingBottom="1dip"
+                android:paddingLeft="1dip"
+                android:paddingRight="1dip" >
+
+                <com.zcs.fast.forward.widget.GifView
+                    android:id="@+id/gif_view1"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_margin="1dip"
+                    android:layout_weight="1" />
+
+                <com.zcs.fast.forward.widget.GifView
+                    android:id="@+id/gif_view2"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_margin="1dip"
+                    android:layout_weight="1" />
+
+                <com.zcs.fast.forward.widget.GifView
+                    android:id="@+id/gif_view3"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_margin="1dip"
+                    android:layout_weight="1" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/notice_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/theme_white"
+            android:padding="5dip"
+            android:text="@string/gif_view_notice"
+            android:textSize="18sp"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/btn_notice"
+            style="@style/blueBtnWithIcon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="10dip"
+            android:text="查看注意事项" />
+    </RelativeLayout>
+
+</RelativeLayout>

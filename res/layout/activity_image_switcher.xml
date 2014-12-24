@@ -31,83 +31,98 @@
 
         <!-- Demo展示区域 -->
 
-        <RelativeLayout
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/demo_desc_tip"
-            android:background="@color/black_10p" >
+            android:layout_below="@id/demo_desc_tip" >
 
             <RelativeLayout
-                android:id="@+id/img_layout"
                 android:layout_width="match_parent"
-                android:layout_height="190dip" >
+                android:layout_height="wrap_content"
+                android:background="@color/black_10p" >
 
-                <ImageSwitcher
-                    android:id="@+id/imageSwicher"
+                <TextView
+                    android:id="@+id/header"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center" >
-                </ImageSwitcher>
+                    android:layout_height="100dip"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    android:text="@string/app_name" />
 
-                <!-- 存放小圆点的容器 -->
+                <RelativeLayout
+                    android:id="@+id/img_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="190dip"
+                    android:layout_below="@id/header" >
+
+                    <ImageSwitcher
+                        android:id="@+id/imageSwicher"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center" >
+                    </ImageSwitcher>
+
+                    <!-- 存放小圆点的容器 -->
+
+                    <LinearLayout
+                        android:id="@+id/circle_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="20dip"
+                        android:layout_alignParentBottom="true"
+                        android:background="@color/black_30p"
+                        android:gravity="center"
+                        android:orientation="horizontal" >
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tip_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/img_layout"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dip"
+                    android:text="@string/img_animation_type"
+                    android:textColor="@color/theme_blue"
+                    android:textSize="18sp" />
 
                 <LinearLayout
-                    android:id="@+id/circle_layout"
                     android:layout_width="match_parent"
-                    android:layout_height="20dip"
-                    android:layout_alignParentBottom="true"
-                    android:background="@color/black_30p"
-                    android:gravity="center"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tip_layout"
+                    android:layout_marginTop="10dip"
+                    android:background="@color/black_20p"
                     android:orientation="horizontal" >
+
+                    <Button
+                        android:id="@+id/anim_slide"
+                        style="@style/blueBtn"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:enabled="false"
+                        android:text="SLIDE" />
+
+                    <Button
+                        android:id="@+id/anim_push"
+                        style="@style/blueBtn"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dip"
+                        android:layout_marginRight="5dip"
+                        android:layout_weight="1"
+                        android:text="PUSH" />
+
+                    <Button
+                        android:id="@+id/anim_zoom"
+                        style="@style/blueBtn"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="ZOOM" />
                 </LinearLayout>
             </RelativeLayout>
-
-            <TextView
-                android:id="@+id/tip_layout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/img_layout"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="10dip"
-                android:text="@string/img_animation_type"
-                android:textColor="@color/theme_blue"
-                android:textSize="18sp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tip_layout"
-                android:layout_marginTop="10dip"
-                android:orientation="horizontal" >
-
-                <Button
-                    android:id="@+id/anim_slide"
-                    style="@style/blueBtn"
-                    android:enabled="false"
-                    android:layout_width="0dip"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="SLIDE" />
-
-                <Button
-                    android:id="@+id/anim_push"
-                    style="@style/blueBtn"
-                    android:layout_width="0dip"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dip"
-                    android:layout_marginRight="5dip"
-                    android:layout_weight="1"
-                    android:text="PUSH" />
-
-                <Button
-                    android:id="@+id/anim_zoom"
-                    style="@style/blueBtn"
-                    android:layout_width="0dip"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="ZOOM" />
-            </LinearLayout>
-        </RelativeLayout>
+        </ScrollView>
     </RelativeLayout>
 
 </RelativeLayout>

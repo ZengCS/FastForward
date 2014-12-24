@@ -77,7 +77,7 @@ public abstract class BaseActivity extends Activity implements OnClickListener {
 	}
 
 	/**
-	 * 初始化布局,内部调用initTitlebar()和initComponent()
+	 * 初始化布局，内部调用initTitlebar()和initComponent()
 	 */
 	protected void init() {
 		initTitlebar();
@@ -85,12 +85,12 @@ public abstract class BaseActivity extends Activity implements OnClickListener {
 	}
 
 	/**
-	 * 初始化Titlebar
+	 * 初始化Titlebar，在super.init()中自动调用此方法
 	 */
 	protected abstract void initTitlebar();
 
 	/**
-	 * 初始化组件
+	 * 初始化组件，在super.init()中自动调用此方法
 	 */
 	protected abstract void initComponent();
 

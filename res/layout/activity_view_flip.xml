@@ -1,0 +1,94 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.ViewFlipActivity" >
+
+    <include
+        android:id="@+id/titlebar_view_flip"
+        layout="@layout/titlebar_activity" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/titlebar_view_flip"
+        android:padding="@dimen/activity_padding_normal" >
+
+        <!-- Demo功能简介 -->
+
+        <TextView
+            android:id="@+id/demo_desc_tip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:background="@drawable/bg_corner_gray"
+            android:drawableLeft="@drawable/ic_info"
+            android:gravity="center"
+            android:padding="5dip"
+            android:text="@string/act_desc"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <!-- Demo展示区域 -->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/demo_desc_tip"
+            android:background="@color/black_10p"
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/btn_start_flip"
+                style="@style/blueBtnWithIcon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Flip" />
+
+            <RelativeLayout
+                android:id="@+id/first_view"
+                android:layout_width="200dip"
+                android:layout_height="200dip"
+                android:layout_centerInParent="true"
+                android:background="@color/theme_blue" >
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/second_view"
+                android:layout_width="200dip"
+                android:layout_height="200dip"
+                android:layout_centerInParent="true"
+                android:background="@color/theme_red"
+                android:visibility="gone" >
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/grid_line_v"
+                android:layout_width="1dip"
+                android:layout_height="match_parent"
+                android:layout_below="@id/btn_start_flip"
+                android:layout_centerInParent="true"
+                android:background="@drawable/repeat_dotline_v" />
+            <View
+                android:id="@+id/grid_line_h"
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:layout_centerInParent="true"
+                android:background="@drawable/repeat_dotline_h" />
+
+            <Button
+                android:id="@+id/btn_hide_grid"
+                style="@style/redBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="5dip"
+                android:layout_marginRight="5dip"
+                android:paddingLeft="10dip"
+                android:paddingRight="10dip"
+                android:text="隐藏网格" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

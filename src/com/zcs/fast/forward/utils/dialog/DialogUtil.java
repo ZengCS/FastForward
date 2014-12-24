@@ -1,10 +1,15 @@
 package com.zcs.fast.forward.utils.dialog;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.graphics.Color;
 import android.text.method.LinkMovementMethod;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.view.WindowManager.LayoutParams;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
@@ -47,7 +52,7 @@ public class DialogUtil {
 		spaceshipImage.startAnimation(hyperspaceJumpAnimation);
 		tipTextView.setText(param.getMsg());// 设置加载信息
 
-		Dialog dialog = new Dialog(param.getContext(), R.style.mz_dialog_style);// 创建自定义样式dialog
+		Dialog dialog = new Dialog(param.getContext(), R.style.custom_dialog_style);// 创建自定义样式dialog
 
 		dialog.setCancelable(param.isCancelable());// 不可以用“返回键”取消
 		dialog.setContentView(layout, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT, LinearLayout.LayoutParams.FILL_PARENT));// 设置布局
@@ -81,7 +86,7 @@ public class DialogUtil {
 		}
 		okBtn.setOnClickListener(param.getOkBtnClickListener());
 
-		Dialog confirmDialog = new Dialog(param.getContext(), R.style.mz_dialog_style);// 创建自定义样式dialog
+		Dialog confirmDialog = new Dialog(param.getContext(), R.style.custom_dialog_style);// 创建自定义样式dialog
 
 		confirmDialog.setCancelable(param.isCancelable());// 不可以用“返回键”
 		confirmDialog.setContentView(layout, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT, LinearLayout.LayoutParams.FILL_PARENT));// 设置布局
@@ -123,7 +128,7 @@ public class DialogUtil {
 		}
 		okBtn.setOnClickListener(param.getOkBtnClickListener());
 
-		Dialog confirmDialog = new Dialog(param.getContext(), R.style.mz_dialog_style);// 创建自定义样式dialog
+		Dialog confirmDialog = new Dialog(param.getContext(), R.style.custom_dialog_style);// 创建自定义样式dialog
 
 		confirmDialog.setCancelable(param.isCancelable());// 不可以用“返回键”
 		confirmDialog.setContentView(layout, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT, LinearLayout.LayoutParams.FILL_PARENT));// 设置布局
@@ -162,10 +167,34 @@ public class DialogUtil {
 		}
 		cancelBtn.setOnClickListener(param.getCancelBtnClickListener());
 
-		Dialog confirmDialog = new Dialog(param.getContext(), R.style.mz_dialog_style);// 创建自定义样式dialog
+		Dialog confirmDialog = new Dialog(param.getContext(), R.style.custom_dialog_style);// 创建自定义样式dialog
 
 		confirmDialog.setCancelable(param.isCancelable());// 不可以用“返回键”
 		confirmDialog.setContentView(layout, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT, LinearLayout.LayoutParams.FILL_PARENT));// 设置布局
 		return confirmDialog;
+	}
+
+	/**
+	 * 创建从底部弹出的Dialog
+	 * 
+	 * @param dialogView
+	 *            Dialog中填充的View
+	 * @param context
+	 *            Dialog所在的Context
+	 * @return 从底部弹出的Dialog对象
+	 */
+	public static Dialog createBottomDialog(View dialogView, Context context) {
+		Dialog dialog = new Dialog(context, R.style.custom_bottom_dialog);
+		dialog.setContentView(dialogView);
+
+		Window dialogWindow = dialog.getWindow();
+		WindowManager.LayoutParams layoutParams = dialogWindow.getAttributes();
+		dialogWindow.setGravity(Gravity.BOTTOM);
+		layoutParams.width = LayoutParams.MATCH_PARENT;
+		layoutParams.height = LayoutParams.WRAP_CONTENT;
+		dialogWindow.setAttributes(layoutParams);
+		dialogWindow.setWindowAnimations(R.style.custom_dialog_animation_from_bottom);
+
+		return dialog;
 	}
 }

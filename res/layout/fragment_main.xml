@@ -7,8 +7,6 @@
     <com.lee.pullrefresh.ui.PullToRefreshGridView
         android:id="@+id/main_gridview"
         android:layout_width="match_parent"
-        android:paddingLeft="@dimen/activity_padding_normal"
-        android:paddingRight="@dimen/activity_padding_normal"
         android:layout_height="match_parent"/>
 
 </RelativeLayout>

@@ -4,6 +4,7 @@ import java.util.Map;
 
 import android.database.sqlite.SQLiteDatabase;
 
+import com.zcs.fast.forward.entity.DownloadInfoEntity;
 import com.zcs.fast.forward.entity.Note;
 import com.zcs.fast.forward.entity.RecommendEntity;
 
@@ -22,10 +23,12 @@ public class DaoSession extends AbstractDaoSession {
 	// TODO Step:1 定义一个DaoConfig对象
 	private final DaoConfig noteDaoConfig;
 	private final DaoConfig recommendDaoConfig;
+	private final DaoConfig downloadInfoDaoConfig;
 
 	// TODO Step:2 定义一个Dao对象
 	private final NoteDao noteDao;
 	private final RecommendDao recommendDao;
+	private final DownloadInfoDao downloadInfoDao;
 
 	public DaoSession(SQLiteDatabase db, IdentityScopeType type, Map<Class<? extends AbstractDao<?, ?>>, DaoConfig> daoConfigMap) {
 		super(db);
@@ -36,18 +39,24 @@ public class DaoSession extends AbstractDaoSession {
 		recommendDaoConfig = daoConfigMap.get(RecommendDao.class).clone();
 		recommendDaoConfig.initIdentityScope(type);
 
+		downloadInfoDaoConfig = daoConfigMap.get(DownloadInfoDao.class).clone();
+		downloadInfoDaoConfig.initIdentityScope(type);
+
 		// TODO Step:4 初始化Dao对象并注册
 		noteDao = new NoteDao(noteDaoConfig, this);
 		recommendDao = new RecommendDao(recommendDaoConfig, this);
+		downloadInfoDao = new DownloadInfoDao(downloadInfoDaoConfig, this);
 
 		registerDao(Note.class, noteDao);
 		registerDao(RecommendEntity.class, recommendDao);
+		registerDao(DownloadInfoEntity.class, downloadInfoDao);
 	}
 
 	public void clear() {
 		// TODO Step:5 添加Clear
 		noteDaoConfig.getIdentityScope().clear();
 		recommendDaoConfig.getIdentityScope().clear();
+		downloadInfoDaoConfig.getIdentityScope().clear();
 	}
 
 	// TODO Step:6 添加Dao的get方法
@@ -57,6 +66,10 @@ public class DaoSession extends AbstractDaoSession {
 
 	public RecommendDao getRecommendDao() {
 		return recommendDao;
+	}
+
+	public DownloadInfoDao getDownloadInfoDao() {
+		return downloadInfoDao;
 	}
 
 }

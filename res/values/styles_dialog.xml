@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Dialog Style -->
+    <style name="custom_dialog_style" parent="android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <!-- Dialog Button Style -->
+    <style name="custom_dialog_btn">
+        <item name="android:background">@drawable/mz_dialog_btn</item>
+        <item name="android:padding">12dip</item>
+        <item name="android:textColor">@color/dialog_title</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+    
+    <!-- 自定义底部Dialog样式 -->
+    <style name="custom_bottom_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@color/theme_bg_color</item>
+    </style>
+    
+    <!-- 自定义Dialog从底部弹出的动画样式 -->
+    <style name="custom_dialog_animation_from_bottom">
+        <item name="@android:windowEnterAnimation">@anim/dialog_enter</item>
+        <item name="@android:windowExitAnimation">@anim/dialog_exit</item>
+    </style>
+
+</resources>

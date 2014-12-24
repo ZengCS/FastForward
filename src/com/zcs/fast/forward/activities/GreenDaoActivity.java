@@ -2,6 +2,7 @@ package com.zcs.fast.forward.activities;
 
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.List;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -18,11 +19,9 @@ import android.widget.TextView;
 
 import com.zcs.fast.forward.R;
 import com.zcs.fast.forward.base.BaseActivity;
-import com.zcs.fast.forward.dao.DaoMaster;
-import com.zcs.fast.forward.dao.DaoMaster.DevOpenHelper;
-import com.zcs.fast.forward.dao.DaoSession;
 import com.zcs.fast.forward.dao.NoteDao;
 import com.zcs.fast.forward.entity.Note;
+import com.zcs.fast.forward.sqlite.GreenDAOManger;
 import com.zcs.fast.forward.utils.LogUtil;
 
 public class GreenDaoActivity extends BaseActivity {
@@ -35,9 +34,9 @@ public class GreenDaoActivity extends BaseActivity {
 	private ListView mListView;
 
 	/** GreenDAO */
+	private GreenDAOManger daoManger;
 	private SQLiteDatabase db;
-	private DaoMaster daoMaster;
-	private DaoSession daoSession;
+
 	private NoteDao noteDao;
 	private Cursor cursor;
 
@@ -48,13 +47,12 @@ public class GreenDaoActivity extends BaseActivity {
 		setContentView(R.layout.activity_green_dao);
 		super.init();
 		// TODO 初始化数据库
-		DevOpenHelper helper = new DaoMaster.DevOpenHelper(this, "notes-db", null);
-		db = helper.getWritableDatabase();
-		daoMaster = new DaoMaster(db);
-		daoSession = daoMaster.newSession();
-		noteDao = daoSession.getNoteDao();
+		daoManger = GreenDAOManger.getInstance();
+		db = daoManger.getDb();
+		noteDao = daoManger.getDaoSession().getNoteDao();
 
-//		List<Note> list = noteDao.loadAll();
+		List<Note> list = noteDao.loadAll();
+		showToast("list size:" + list.size());
 
 		String textColumn = NoteDao.Properties.Text.columnName;
 		String orderBy = textColumn + " COLLATE LOCALIZED ASC";

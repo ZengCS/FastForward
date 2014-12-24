@@ -1,5 +1,6 @@
 package com.zcs.fast.forward.fragment;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,9 +25,16 @@ import com.zcs.fast.forward.adapter.MenuListAdapter;
 import com.zcs.fast.forward.base.BaseFragment;
 import com.zcs.fast.forward.commons.MenuType;
 import com.zcs.fast.forward.entity.ListItemEntity;
+import com.zcs.fast.forward.sqlite.GreenDAOManger;
+import com.zcs.fast.forward.utils.FileUtils;
+import com.zcs.fast.forward.utils.LogUtil;
 import com.zcs.fast.forward.utils.dialog.DialogParam;
 import com.zcs.fast.forward.utils.dialog.DialogUtil;
 
+/**
+ * @author ZengCS
+ * 
+ */
 @SuppressLint("HandlerLeak")
 public class MenuFragment extends BaseFragment {
 	private static final int SHOW_VERSION_CHECK_RESULT = 0;
@@ -41,9 +49,14 @@ public class MenuFragment extends BaseFragment {
 	private List<ListItemEntity> menuList;
 	private MenuListAdapter mAdapter;
 
+	/** GreenDAO */
+	private GreenDAOManger daoManger;
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		root = inflater.inflate(R.layout.fragment_menu, null);
+		daoManger = GreenDAOManger.getInstance();
+		
 		super.init();
 		initMenuListView();
 		return root;
@@ -65,13 +78,26 @@ public class MenuFragment extends BaseFragment {
 						break;
 					}
 				}
-				mAdapter.notifyDataSetChanged(menuList);
+				mAdapter.notifyDataSetChanged();
 				break;
 			default:
 				break;
 			}
 		}
 	};
+
+	/**
+	 * 获取缓存大小
+	 * 
+	 * @return
+	 */
+	private String getCacheSize() {
+		File cacheDir = mContext.getCacheDir();
+		// cacheDir = cacheDir.getParentFile();
+		String len = FileUtils.formatFileSize(FileUtils.getDirSize(cacheDir));
+		LogUtil.d("CacheFile", "len:" + len);
+		return len;
+	}
 
 	/**
 	 * 初始化菜单列表
@@ -87,7 +113,11 @@ public class MenuFragment extends BaseFragment {
 			item.setType(names[1]);
 			item.setDrawable(R.drawable.ic_cocos2d);
 			if (item.getType().equals(MenuType.MENU_TYPE_VERSION)) {
+				// TODO 设置当前版本信息
 				item.setDesc(mListener.getVersionName());
+			} else if (item.getType().equals(MenuType.MENU_TYPE_CLEAR_CACHE)) {
+				// TODO 设置缓存大小
+				item.setDesc(getCacheSize());
 			} else {
 				item.setDesc("");
 			}
@@ -116,7 +146,8 @@ public class MenuFragment extends BaseFragment {
 			return;
 		}
 		if (item.getType().equals(MenuType.MENU_TYPE_CLEAR_CACHE)) {// 清空缓存
-			mListener.showToast("Menu:清空缓存" + System.currentTimeMillis());
+			mListener.showToast("清空缓存");
+			clearCache();
 			return;
 		}
 		if (item.getType().equals(MenuType.MENU_TYPE_FEEDBACK)) {// 意见反馈
@@ -159,6 +190,31 @@ public class MenuFragment extends BaseFragment {
 			mListener.showToast("Menu:未知" + System.currentTimeMillis());
 			return;
 		}
+	}
+
+	/**
+	 * 清空缓存
+	 */
+	private void clearCache() {
+		File cacheDir = mContext.getCacheDir();
+		FileUtils.deleteDir(cacheDir);
+		// 清空GreenDAO数据库
+		daoManger.getDaoSession().getNoteDao().deleteAll();
+
+		refreshCacheSize();
+	}
+
+	/**
+	 * 刷新缓存大小
+	 */
+	public void refreshCacheSize() {
+		for (ListItemEntity item : menuList) {
+			if (item.getType().equals(MenuType.MENU_TYPE_CLEAR_CACHE)) {
+				item.setDesc(getCacheSize());
+				break;
+			}
+		}
+		mAdapter.notifyDataSetChanged();
 	}
 
 	/**

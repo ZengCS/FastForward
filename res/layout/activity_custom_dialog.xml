@@ -60,6 +60,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dip"
                 android:text="@string/txt_dialog_process" />
+            
+            <Button
+                android:id="@+id/btn_custom_dialog_bottom"
+                style="@style/blueBtnWithIcon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dip"
+                android:text="@string/txt_dialog_bottom" />
         </LinearLayout>
     </RelativeLayout>
 

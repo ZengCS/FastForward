@@ -10,7 +10,7 @@ public class BitmapCache implements ImageCache {
 
 	public BitmapCache() {
 		if (mCache == null) {
-			LogUtil.i(VolleyUtil.TAG, "***Init The BitmapCache");
+			// 为Bitmap缓存分配10M空间
 			int maxSize = 10 * 1024 * 1024;
 			mCache = new LruCache<String, Bitmap>(maxSize) {
 				@Override

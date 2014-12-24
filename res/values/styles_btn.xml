@@ -1,0 +1,40 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 按钮默认 -->
+    <style name="mBaseBtn">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    
+    <!-- 蓝色按钮 -->
+    <style name="blueBtn" parent="mBaseBtn">
+        <item name="android:background">@drawable/bg_corner_blue_selector</item>
+    </style>
+    
+    <!-- 蓝色带图标按钮 -->
+    <style name="blueBtnWithIcon" parent="blueBtn">
+        <item name="android:paddingLeft">20dip</item>
+        <item name="android:paddingRight">20dip</item>
+        <item name="android:drawableLeft">@drawable/github_white</item>
+        <item name="android:drawableRight">@drawable/git_null</item>
+    </style>
+
+	<!-- 红色按钮 -->
+    <style name="redBtn" parent="mBaseBtn">
+        <item name="android:background">@drawable/bg_corner_red_selector</item>
+    </style>
+    
+    <!-- 红色带图标按钮 -->
+    <style name="redBtnWithIcon" parent="redBtn">
+        <item name="android:paddingLeft">20dip</item>
+        <item name="android:paddingRight">20dip</item>
+        <item name="android:drawableLeft">@drawable/github_white</item>
+        <item name="android:drawableRight">@drawable/git_null</item>
+    </style>
+    
+    <!-- 灰色按钮 -->
+    <style name="grayBtn" parent="mBaseBtn">
+        <item name="android:background">@drawable/bg_corner_gray_selector</item>
+    </style>
+
+</resources>

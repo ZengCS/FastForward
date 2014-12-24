@@ -19,6 +19,7 @@ public class DaoMaster extends AbstractDaoMaster {
 		// TODO Setp:1 添加调用createTable()方法
 		NoteDao.createTable(db, ifNotExists);
 		RecommendDao.createTable(db, ifNotExists);
+		DownloadInfoDao.createTable(db, ifNotExists);
 	}
 
 	/** Drops underlying database table using DAOs. */
@@ -26,6 +27,7 @@ public class DaoMaster extends AbstractDaoMaster {
 		// TODO Setp:2 添加调用dropTable()方法
 		NoteDao.dropTable(db, ifExists);
 		RecommendDao.dropTable(db, ifExists);
+		DownloadInfoDao.dropTable(db, ifExists);
 	}
 
 	public static abstract class OpenHelper extends SQLiteOpenHelper {
@@ -59,6 +61,7 @@ public class DaoMaster extends AbstractDaoMaster {
 		super(db, SCHEMA_VERSION);
 		registerDaoClass(NoteDao.class);
 		registerDaoClass(RecommendDao.class);
+		registerDaoClass(DownloadInfoDao.class);
 	}
 
 	public DaoSession newSession() {

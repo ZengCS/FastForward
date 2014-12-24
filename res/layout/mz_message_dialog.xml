@@ -52,7 +52,7 @@
 
     <Button
         android:id="@+id/dialog_btn_ok"
-        style="@style/mz_dialog_btn"
+        style="@style/custom_dialog_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="1dip"

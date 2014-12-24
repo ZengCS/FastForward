@@ -8,9 +8,9 @@ package com.zcs.lib;
 
 public final class R {
 	public static final class anim {
-		public static final int pull_arrow_down = 0x7f040001;
-		public static final int pull_arrow_up = 0x7f040002;
-		public static final int update_loading_progressbar_anim = 0x7f04000d;
+		public static final int pull_arrow_down = 0x7f040003;
+		public static final int pull_arrow_up = 0x7f040004;
+		public static final int update_loading_progressbar_anim = 0x7f04000f;
 	}
 	public static final class dimen {
 		public static final int activity_horizontal_margin = 0x7f050000;
@@ -37,29 +37,29 @@ public final class R {
 		public static final int picture_user_guide_margin = 0x7f050010;
 	}
 	public static final class drawable {
-		public static final int default_ptr_rotate = 0x7f02001e;
-		public static final int github_gray = 0x7f020023;
-		public static final int ic_launcher = 0x7f02002c;
-		public static final int mz_loading = 0x7f020036;
-		public static final int xsearch_loading = 0x7f020040;
-		public static final int xsearch_msg_pull_arrow_down = 0x7f020041;
+		public static final int default_ptr_rotate = 0x7f020029;
+		public static final int github_gray = 0x7f020035;
+		public static final int ic_launcher = 0x7f02003e;
+		public static final int mz_loading = 0x7f020050;
+		public static final int xsearch_loading = 0x7f02005e;
+		public static final int xsearch_msg_pull_arrow_down = 0x7f02005f;
 	}
 	public static final class id {
-		public static final int pull_to_load_footer_content = 0x7f08005d;
-		public static final int pull_to_load_footer_hint_textview = 0x7f08005f;
-		public static final int pull_to_load_footer_progressbar = 0x7f08005e;
-		public static final int pull_to_refresh_header_arrow = 0x7f080065;
-		public static final int pull_to_refresh_header_content = 0x7f080060;
-		public static final int pull_to_refresh_header_hint_textview = 0x7f080062;
-		public static final int pull_to_refresh_header_progressbar = 0x7f080066;
-		public static final int pull_to_refresh_header_text = 0x7f080061;
-		public static final int pull_to_refresh_header_time = 0x7f080064;
-		public static final int pull_to_refresh_last_update_time_text = 0x7f080063;
+		public static final int pull_to_load_footer_content = 0x7f080084;
+		public static final int pull_to_load_footer_hint_textview = 0x7f080086;
+		public static final int pull_to_load_footer_progressbar = 0x7f080085;
+		public static final int pull_to_refresh_header_arrow = 0x7f08008c;
+		public static final int pull_to_refresh_header_content = 0x7f080087;
+		public static final int pull_to_refresh_header_hint_textview = 0x7f080089;
+		public static final int pull_to_refresh_header_progressbar = 0x7f08008d;
+		public static final int pull_to_refresh_header_text = 0x7f080088;
+		public static final int pull_to_refresh_header_time = 0x7f08008b;
+		public static final int pull_to_refresh_last_update_time_text = 0x7f08008a;
 	}
 	public static final class layout {
-		public static final int pull_to_load_footer = 0x7f030022;
-		public static final int pull_to_refresh_header = 0x7f030023;
-		public static final int pull_to_refresh_header2 = 0x7f030024;
+		public static final int pull_to_load_footer = 0x7f030029;
+		public static final int pull_to_refresh_header = 0x7f03002a;
+		public static final int pull_to_refresh_header2 = 0x7f03002b;
 	}
 	public static final class string {
 		public static final int app_name = 0x7f060017;

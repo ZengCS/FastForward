@@ -32,6 +32,7 @@
             android:text="@string/data_loading"
             android:textColor="@color/white"
             android:textSize="16sp" />
+        
     </RelativeLayout>
 
 </RelativeLayout>

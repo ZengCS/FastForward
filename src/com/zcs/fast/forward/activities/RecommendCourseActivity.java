@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Map;
 
 import android.annotation.SuppressLint;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -33,12 +32,10 @@ import com.lee.pullrefresh.ui.PullToRefreshListView;
 import com.zcs.fast.forward.R;
 import com.zcs.fast.forward.adapter.RecommendListAdapter;
 import com.zcs.fast.forward.base.BaseActivity;
-import com.zcs.fast.forward.dao.DaoMaster;
-import com.zcs.fast.forward.dao.DaoMaster.DevOpenHelper;
-import com.zcs.fast.forward.dao.DaoSession;
 import com.zcs.fast.forward.dao.RecommendDao;
 import com.zcs.fast.forward.entity.RecommendEntity;
 import com.zcs.fast.forward.http.ServerHost;
+import com.zcs.fast.forward.sqlite.GreenDAOManger;
 import com.zcs.fast.forward.utils.LogUtil;
 import com.zcs.fast.forward.utils.PullRefreshUtil;
 import com.zcs.fast.forward.utils.SharedPreferencesUtil;
@@ -51,6 +48,7 @@ public class RecommendCourseActivity extends BaseActivity implements OnRefreshLi
 
 	protected static final int WHAT_GET_RECOMMEND_SUCCESS = 0;
 	protected static final int WHAT_GET_DATA_FAIL = 1;
+	protected static final int WHAT_GET_DATA_ERROR = 2;
 
 	private boolean isNetworkAble = true;
 
@@ -68,18 +66,20 @@ public class RecommendCourseActivity extends BaseActivity implements OnRefreshLi
 	private List<RecommendEntity> mShowList;// 需展示的List
 
 	/** GreenDAO */
-	private SQLiteDatabase db;
-	private DaoMaster daoMaster;
-	private DaoSession daoSession;
-	private RecommendDao dao;
-
-	// private Cursor cursor;
+	private RecommendDao recommendDao;
+	private GreenDAOManger daoManger;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_recommend_course);
 		super.init();
+
+		if (!ServerHost.HOST_ABLE) {
+			showToast("功能已被关闭，请离开当前界面！");
+			return;
+		}
+
 		// TODO 设置上次更新时间
 		setLastUpdateTimeFromCache();
 
@@ -89,12 +89,10 @@ public class RecommendCourseActivity extends BaseActivity implements OnRefreshLi
 		mShowList = new ArrayList<RecommendEntity>(0);
 
 		// TODO 初始化数据库
-		DevOpenHelper helper = new DaoMaster.DevOpenHelper(this, "fast-forward-db", null);
-		db = helper.getWritableDatabase();
-		daoMaster = new DaoMaster(db);
-		daoSession = daoMaster.newSession();
-		dao = daoSession.getRecommendDao();
-		mList = dao.loadAll();
+		daoManger = new GreenDAOManger(this);
+		recommendDao = daoManger.getDaoSession().getRecommendDao();
+
+		mList = recommendDao.loadAll();
 		if (mList.size() > 0) {
 			// TODO Step1: 存在数据库缓存数据
 			displayData(true);
@@ -145,7 +143,7 @@ public class RecommendCourseActivity extends BaseActivity implements OnRefreshLi
 				setLastUpdateTime();
 				displayData(true);
 				// 覆盖数据库
-				dao.coverList(mList);
+				recommendDao.coverList(mList);
 				break;
 			case WHAT_GET_DATA_FAIL:
 				showTipMsg(getString(R.string.data_load_failed), true);
@@ -213,19 +211,24 @@ public class RecommendCourseActivity extends BaseActivity implements OnRefreshLi
 		Map<String, Object> qparams = new HashMap<String, Object>();
 		qparams.put("client", "android");
 		String url = VolleyUtil.getAbsolutUrl(ServerHost.RECOMMEND_COURSE, qparams);
-
+		// CustomStringRequest stringRequest = new CustomStringRequest(url, new
+		// Response.Listener<String>() {
 		StringRequest stringRequest = new StringRequest(url, new Response.Listener<String>() {
 			@Override
 			public void onResponse(String response) {
-				// GSON解析
-				Type type = new TypeToken<List<RecommendEntity>>() {
-				}.getType();
-				mList = gson.fromJson(response, type);
-
-				if (mList.size() > 0) {
-					mHandler.sendEmptyMessage(WHAT_GET_RECOMMEND_SUCCESS);
-				} else {
-					mHandler.sendEmptyMessage(WHAT_GET_DATA_FAIL);
+				try {
+					// GSON解析
+					Type type = new TypeToken<List<RecommendEntity>>() {
+					}.getType();
+					mList = gson.fromJson(response, type);
+					if (mList.size() > 0) {
+						mHandler.sendEmptyMessage(WHAT_GET_RECOMMEND_SUCCESS);
+					} else {
+						mHandler.sendEmptyMessage(WHAT_GET_DATA_FAIL);
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+					showTipMsg("数据解析失败!", false);
 				}
 			}
 		}, new Response.ErrorListener() {

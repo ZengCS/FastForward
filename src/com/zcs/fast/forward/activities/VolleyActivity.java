@@ -38,7 +38,7 @@ public class VolleyActivity extends BaseActivity {
 	private void initVolley() {
 		mQueue = Volley.newRequestQueue(this);
 		mImageLoader = new ImageLoader(mQueue, new BitmapCache());
-		
+
 		// TODO 加载图片
 		getImgByVolley();
 	}
@@ -92,6 +92,13 @@ public class VolleyActivity extends BaseActivity {
 		// TODO 初始化组件
 		img1 = (ImageView) findViewById(R.id.volley_img_1);
 		img2 = (ImageView) findViewById(R.id.volley_img_2);
+	}
+
+	@Override
+	protected void onStop() {
+		super.onStop();
+		// TODO 退出的时候，取消当前Activity涉及的所有Volley的请求
+		mQueue.cancelAll(this);
 	}
 
 	@Override

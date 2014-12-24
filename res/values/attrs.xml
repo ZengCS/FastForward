@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+
+    <declare-styleable name="GifView">
+        <attr name="gif_name" format="string" />
+        <attr name="gif_id" format="integer"></attr>
+    </declare-styleable>
+
+</resources>
