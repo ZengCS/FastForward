@@ -21,13 +21,13 @@ import com.zcs.fast.forward.utils.LogUtil;
 
 public class ListViewCheckAllActivity extends BaseActivity implements OnItemClickListener {
 	/** constant */
-	private static final String CURR_TITLE = "EmptyActivity";
+	private static final String CURR_TITLE = "ListView全选";
 
 	/** Views */
 	private ListView mListView;// 列表
 	private CheckListAdapter mAdapter;
 	private List<CheckItem> itemList;
-	private Button checkAll, checkNull;// 全选,全不选按钮
+	private Button checkShow, checkAll, checkNull;// 查看,全选,全不选按钮
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +70,9 @@ public class ListViewCheckAllActivity extends BaseActivity implements OnItemClic
 		case R.id.titlebtn_right_act:// 查看
 			displayHelpDialog();
 			break;
+		case R.id.btn_check_show:// 查看已选中
+			showChecked();
+			break;
 		case R.id.btn_check_all:// 全选
 			checkAll(true);
 			break;
@@ -82,7 +85,30 @@ public class ListViewCheckAllActivity extends BaseActivity implements OnItemClic
 	}
 
 	/**
-	 * 全选
+	 * 查看选中项
+	 */
+	private void showChecked() {
+		List<CheckItem> checkedList = new ArrayList<CheckItem>();
+		for (CheckItem item : itemList) {
+			if (item.isCheck()) {
+				checkedList.add(item);
+			}
+		}
+		if (checkedList.size() > 0) {
+			String str = "";
+			for (CheckItem item : checkedList) {
+				str += item.getName() + ",";
+			}
+			showToast("你选择了[" + str + "]");
+		} else {
+			showToast("一个都没有选中！");
+		}
+	}
+
+	/**
+	 * 全选/全不选
+	 * 
+	 * @param checkState
 	 */
 	private void checkAll(boolean checkState) {
 		for (CheckItem item : itemList) {
@@ -115,9 +141,11 @@ public class ListViewCheckAllActivity extends BaseActivity implements OnItemClic
 		mListView = (ListView) findViewById(R.id.check_listview);
 
 		// 全选和全不选按钮
+		checkShow = (Button) findViewById(R.id.btn_check_show);
 		checkAll = (Button) findViewById(R.id.btn_check_all);
 		checkNull = (Button) findViewById(R.id.btn_check_null);
 
+		checkShow.setOnClickListener(this);
 		checkAll.setOnClickListener(this);
 		checkNull.setOnClickListener(this);
 	}
